@@ -874,7 +874,10 @@ export const useOutdialCall = (props: useOutdialCallProps) => {
   const getOutdialANIEntries = async () => {
     try {
       const agentProfile = cc.agentConfig;
-      const outdialANIId = agentProfile?.outdialANIId || '';
+      const outdialANIId = agentProfile?.outdialANIId;
+      if (!outdialANIId) {
+        throw Error('No OutdialANI Id received.');
+      }
       const result = await cc.getOutdialAniEntries({outdialANI: outdialANIId});
       return result;
     } catch (error) {

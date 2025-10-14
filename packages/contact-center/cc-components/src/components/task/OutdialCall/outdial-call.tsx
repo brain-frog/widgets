@@ -40,7 +40,7 @@ interface OutdialANIEntry {
  * @property startOutdial - Function to initiate the outdial call with the entered destination number.
  */
 const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> = (props) => {
-  const {startOutdial, getOutdialANIEntries} = props;
+  const {logger, startOutdial, getOutdialANIEntries} = props;
 
   // State Hooks
   const [destination, setDestination] = useState('');
@@ -62,7 +62,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
         const result = await getOutdialANIEntries();
         setOutdialANIList(result);
       } catch (error) {
-        console.error('Error fetching outdial ANI entries:', error);
+        logger?.error('Error fetching outdial ANI entries:', error);
         setOutdialANIList([]);
       }
     };
@@ -83,11 +83,11 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
   };
 
   /**
-   * handleKeyPress
+   * handleOnClick
    * @param value The key value pressed
    * Appends the pressed key to the destination input field
    */
-  const handleKeyPress = (value: string) => {
+  const handleOnClick = (value: string) => {
     setDestination(destination + value);
     validateOutboundNumber(destination + value);
   };
@@ -105,7 +105,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
         ></Tab>
       </header>
       <Input
-        className="input"
+        className="outdial-input"
         id="outdial-number-input"
         name="outdial-number-input"
         data-testid="outdial-number-input"
@@ -122,14 +122,14 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
       <ul className="keys">
         {KEY_LIST.map((key) => (
           <li key={key}>
-            <Button className="key button" onClick={() => handleKeyPress(key)}>
+            <Button className="key button" onClick={() => handleOnClick(key)}>
               {key}
             </Button>
           </li>
         ))}
       </ul>
       <Select
-        className="input"
+        className="outdial-input"
         label={OutdialStrings.ANI_SELECT_LABEL}
         id="outdial-ani-option"
         name="outdial-ani-option-select"
@@ -155,10 +155,10 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
       </Select>
       <Button
         data-testid="outdial-call-button"
-        className="button"
         prefixIcon={'handset-regular'}
         onClick={() => startOutdial(destination, selectedANI)}
         disabled={!!isValidNumber || !destination}
+        size={40}
       />
     </article>
   );

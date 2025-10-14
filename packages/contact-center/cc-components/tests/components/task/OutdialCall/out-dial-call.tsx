@@ -3,6 +3,7 @@ import {render, fireEvent, screen, waitFor} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import OutdialCallComponent from '../../../../src/components/task/OutdialCall/outdial-call';
 import store from '@webex/cc-store';
+import type {ILogger} from '@webex/cc-store';
 
 describe('OutdialCallComponent', () => {
   const mockStartOutdial = jest.fn();
@@ -10,23 +11,25 @@ describe('OutdialCallComponent', () => {
     {name: 'name 1', number: '1'},
     {name: 'name 2', number: '2'},
   ]);
-  const KEY_LIST = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#'];
-  let customEvent;
-
-  // Prevent warning 'CC-Widgets: UI Metrics: No logger found'
-  store.store.logger = {
+  const mockLogger: ILogger = {
     log: jest.fn(),
     info: jest.fn(),
     warn: jest.fn(),
     error: jest.fn(),
     trace: jest.fn(),
   };
+  const KEY_LIST = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#'];
+  let customEvent;
+
+  // Prevent warning 'CC-Widgets: UI Metrics: No logger found'
+  store.store.logger = mockLogger;
 
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
   const props = {
+    logger: mockLogger,
     startOutdial: mockStartOutdial,
     getOutdialANIEntries: mockGetOutdialANIEntries,
   };

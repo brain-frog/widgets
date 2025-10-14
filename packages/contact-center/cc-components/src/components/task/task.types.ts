@@ -496,7 +496,7 @@ export interface OutdialCallProps {
   logger: ILogger;
 }
 
-export type OutdialCallComponentProps = Pick<OutdialCallProps, 'startOutdial' | 'getOutdialANIEntries'>;
+export type OutdialCallComponentProps = Pick<OutdialCallProps, 'logger' | 'startOutdial' | 'getOutdialANIEntries'>;
 
 /**
  * Interface representing the properties for CallControlListItem component.

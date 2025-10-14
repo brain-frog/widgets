@@ -4,6 +4,7 @@
   align-items: center;
   border-radius: 0.625rem;
   width: 15.625rem;
+
   
   mdc-input {
     padding-bottom: 0; // default is 1 rem, 1.5 rem needed but provided by .keys
@@ -13,13 +14,8 @@
     margin-bottom: 1rem;
   }
 
-  .input {
+  .outdial-input {
     width: 100%;
-  }
-
-  .button {
-    width: 2.5rem;
-    height: 2.5rem;
   }
   
   .keys {
