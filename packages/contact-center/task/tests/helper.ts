@@ -2626,6 +2626,7 @@ describe('useOutdialCall', () => {
   const ccMock = {
     ...mockCC,
     startOutdial: jest.fn().mockResolvedValue('Success'),
+    getOutdialANIEntries: jest.fn().mockReturnValue([]),
   };
 
   const logger = {
@@ -2661,11 +2662,11 @@ describe('useOutdialCall', () => {
       await result.current.startOutdial(destination);
     });
 
-    expect(ccMock.startOutdial).toHaveBeenCalledWith(destination);
+    expect(ccMock.startOutdial).toHaveBeenCalledWith(destination, undefined);
     expect(logger.info).toHaveBeenCalledWith('Outdial call started', 'Success');
   });
 
-  it('should show alert when destination is empty or only constains spaces', async () => {
+  it('should show alert when destination is empty or only contains spaces', async () => {
     const {result} = renderHook(() =>
       useOutdialCall({
         cc: ccMock,
@@ -2698,7 +2699,7 @@ describe('useOutdialCall', () => {
       await result.current.startOutdial(destination);
     });
 
-    expect(errormockCC.startOutdial).toHaveBeenCalledWith(destination);
+    expect(errormockCC.startOutdial).toHaveBeenCalledWith(destination, undefined);
     expect(logger.error).toHaveBeenCalledWith('Error: Outdial call failed', {
       module: 'widget-OutdialCall#helper.ts',
       method: 'startOutdial',

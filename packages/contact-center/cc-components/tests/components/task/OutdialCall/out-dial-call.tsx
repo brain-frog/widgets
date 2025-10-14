@@ -6,6 +6,10 @@ import store from '@webex/cc-store';
 
 describe('OutdialCallComponent', () => {
   const mockStartOutdial = jest.fn();
+  const mockGetOutdialANIEntries = jest.fn().mockReturnValue([
+    {name: 'name 1', number: '1'},
+    {name: 'name 2', number: '2'},
+  ]);
   const KEY_LIST = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#'];
   let customEvent;
 
@@ -24,10 +28,7 @@ describe('OutdialCallComponent', () => {
 
   const props = {
     startOutdial: mockStartOutdial,
-    outdialANIEntries: [
-      {name: 'name 1', number: '1'},
-      {name: 'name 2', number: '2'},
-    ],
+    getOutdialANIEntries: mockGetOutdialANIEntries,
   };
 
   beforeEach(() => {
@@ -81,7 +82,7 @@ describe('OutdialCallComponent', () => {
     const callButton = screen.getByTestId('outdial-call-button');
     fireEvent.click(callButton);
 
-    expect(mockStartOutdial).toHaveBeenCalledWith('123');
+    expect(mockStartOutdial).toHaveBeenCalledWith('123', undefined);
   });
 
   it('allows special characters (* # +) from keypad', () => {

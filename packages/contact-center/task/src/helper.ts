@@ -791,7 +791,6 @@ export const useCallControl = (props: useCallControlProps) => {
         logger.error('CC-Widgets: CallControl: Error initializing auto wrap-up timer', {
           module: 'widget-cc-task#helper.ts',
           method: 'useCallControl#autoWrapupTimer',
-          //@ts-expect-error  To be fixed in SDK - https://jira-eng-sjc12.cisco.com/jira/browse/CAI-6762
           error,
         });
       }
@@ -842,7 +841,7 @@ export const useCallControl = (props: useCallControlProps) => {
 export const useOutdialCall = (props: useOutdialCallProps) => {
   const {cc, logger} = props;
 
-  const startOutdial = (destination: string) => {
+  const startOutdial = (destination: string, origin: string = undefined) => {
     try {
       // Perform validation on destination number.
       if (!destination || !destination.trim()) {
@@ -850,7 +849,7 @@ export const useOutdialCall = (props: useOutdialCallProps) => {
         return;
       }
       //@ts-expect-error  To be fixed in SDK - https://jira-eng-sjc12.cisco.com/jira/browse/CAI-6762
-      cc.startOutdial(destination)
+      cc.startOutdial(destination, origin)
         .then((response) => {
           logger.info('Outdial call started', response);
         })
@@ -868,24 +867,27 @@ export const useOutdialCall = (props: useOutdialCallProps) => {
     }
   };
 
+  /**
+   * Fetches the Outdial ANI entries for the current agent.
+   * @returns An array of Outdial ANI entries.
+   */
+  const getOutdialANIEntries = async () => {
+    try {
+      const agentProfile = cc.agentConfig;
+      const outdialANIId = agentProfile?.outdialANIId || '';
+      const result = await cc.getOutdialAniEntries({outdialANI: outdialANIId});
+      return result;
+    } catch (error) {
+      logger.error(`Error fetching Outdial ANI entries: ${error}`, {
+        module: 'widget-OutdialCall#helper.ts',
+        method: 'getOutdialANIEntries',
+      });
+      throw error;
+    }
+  };
+
   return {
     startOutdial,
+    getOutdialANIEntries,
   };
 };
-
-// Uncomment once SDK PR#4513 is merged
-// export const getOutdialANIEntries = async (props: useOutdialCallProps) => {
-//   const {cc, logger} = props;
-//   const agentProfile = cc.agentConfig;
-//   const outdialANIId = agentProfile?.outdialANIId || '';
-//   try {
-//     const result = await cc.getOutdialANIEntries(outdialANIId);
-//     return result;
-//   } catch (error) {
-//     logger.error(`Error fetching Outdial ANI entries: ${error}`, {
-//       module: 'widget-OutdialCall#helper.ts',
-//       method: 'getOutdialANIEntries',
-//     });
-//     throw error;
-//   }
-// };

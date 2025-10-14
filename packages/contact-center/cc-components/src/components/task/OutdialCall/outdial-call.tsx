@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {OutdialCallComponentProps} from '../task.types';
 import './outdial-call.style.scss';
 import {withMetrics} from '@webex/cc-ui-logging';
@@ -40,12 +40,13 @@ interface OutdialANIEntry {
  * @property startOutdial - Function to initiate the outdial call with the entered destination number.
  */
 const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> = (props) => {
-  const {startOutdial, outdialANIEntries} = props;
+  const {startOutdial, getOutdialANIEntries} = props;
 
   // State Hooks
   const [destination, setDestination] = useState('');
   const [isValidNumber, setIsValidNumber] = useState('');
-  const [selectedANI, setSelectedANI] = useState('');
+  const [selectedANI, setSelectedANI] = useState(undefined);
+  const [outdialANIList, setOutdialANIList] = useState<OutdialANIEntry[]>([]);
 
   // Validate the input format using regex from agent desktop
   const regExForDnSpecialChars = useMemo(
@@ -53,8 +54,20 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
     []
   );
 
-  // Give Select an empty list if outdial ANI entries are not provided
-  const outdialANIList: OutdialANIEntry[] = outdialANIEntries ?? [];
+  // useEffect and useState to allow for async fetching of outdial ANI entries
+  useEffect(() => {
+    // Give Select an empty list if outdial ANI entries are not provided
+    const updateList = async () => {
+      try {
+        const result = await getOutdialANIEntries();
+        setOutdialANIList(result);
+      } catch (error) {
+        console.error('Error fetching outdial ANI entries:', error);
+        setOutdialANIList([]);
+      }
+    };
+    updateList();
+  }, [getOutdialANIEntries]);
 
   /**
    * validateOutboundNumber
@@ -144,7 +157,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
         data-testid="outdial-call-button"
         className="button"
         prefixIcon={'handset-regular'}
-        onClick={() => startOutdial(destination)}
+        onClick={() => startOutdial(destination, selectedANI)}
         disabled={!!isValidNumber || !destination}
       />
     </article>

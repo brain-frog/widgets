@@ -9,6 +9,10 @@ import {
   StateChange,
   Logout,
 } from '@webex/contact-center';
+import {
+  OutdialAniEntriesResponse,
+  OutdialAniParams,
+} from 'node_modules/@webex/contact-center/dist/types/services/config/types';
 import {DestinationType} from 'node_modules/@webex/contact-center/dist/types/services/task/types';
 import {
   AgentProfileUpdate,
@@ -40,8 +44,10 @@ interface IContactCenter {
   agentConfig?: {
     regexUS: RegExp | string;
     agentId: string;
+    outdialANIId: string;
   };
   setAgentState(data: StateChange): Promise<SetStateResponse>;
+  getOutdialAniEntries(params: OutdialAniParams): Promise<OutdialAniEntriesResponse>;
 }
 //  To be fixed in SDK - https://jira-eng-sjc12.cisco.com/jira/browse/CAI-6762
 type IWebex = {

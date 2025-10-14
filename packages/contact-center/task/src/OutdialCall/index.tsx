@@ -9,11 +9,8 @@ const OutdialCallInternal: React.FunctionComponent = observer(() => {
   const {cc, logger} = store;
 
   const result = useOutdialCall({cc, logger});
-  // Uncomment after SDK PR#4513 is merged
-  // const outdialANIEntries = getOutdialANIEntries({cc, logger});
   const props = {
     ...result,
-    // outdialANIEntries,
   };
 
   return <OutdialCallComponent {...props} />;

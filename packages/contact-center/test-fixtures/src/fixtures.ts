@@ -85,6 +85,7 @@ const mockCC: IContactCenter = {
   getBuddyAgents: jest.fn().mockResolvedValue([]),
   getQueues: jest.fn().mockResolvedValue([]),
   setAgentState: jest.fn().mockResolvedValue({}),
+  getOutdialAniEntries: jest.fn().mockResolvedValue({entries: []}),
 };
 
 const mockTask: ITask = {
