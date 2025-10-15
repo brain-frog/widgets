@@ -6,6 +6,9 @@ import {
   BuddyDetails,
   DestinationType,
   ContactServiceQueue,
+  AddressBookEntry,
+  EntryPointRecord,
+  FetchPaginatedList,
 } from '@webex/cc-store';
 
 type Enum<T extends Record<string, unknown>> = T[keyof T];
@@ -409,6 +412,20 @@ export interface ControlProps {
    * Function to cancel the auto wrap-up timer.
    */
   cancelAutoWrapup: () => void;
+
+  /** Fetch paginated address book entries for dial numbers */
+  getAddressBookEntries?: FetchPaginatedList<AddressBookEntry>;
+
+  /** Fetch paginated entry points */
+  getEntryPoints?: FetchPaginatedList<EntryPointRecord>;
+
+  /** Fetch paginated queues (filtered by media type in store) */
+  getQueuesFetcher?: FetchPaginatedList<ContactServiceQueue>;
+
+  /**
+   * Options to configure consult/transfer popover behavior.
+   */
+  consultTransferOptions?: ConsultTransferOptions;
 }
 
 export type CallControlComponentProps = Pick<
@@ -454,6 +471,10 @@ export type CallControlComponentProps = Pick<
   | 'logger'
   | 'secondsUntilAutoWrapup'
   | 'cancelAutoWrapup'
+  | 'getAddressBookEntries'
+  | 'getEntryPoints'
+  | 'getQueuesFetcher'
+  | 'consultTransferOptions'
 >;
 
 /**
@@ -509,11 +530,16 @@ export interface ConsultTransferPopoverComponentProps {
   heading: string;
   buttonIcon: string;
   buddyAgents: BuddyDetails[];
-  queues?: ContactServiceQueue[];
+  getAddressBookEntries?: FetchPaginatedList<AddressBookEntry>;
+  getEntryPoints?: FetchPaginatedList<EntryPointRecord>;
+  getQueues?: FetchPaginatedList<ContactServiceQueue>;
   onAgentSelect?: (agentId: string, agentName: string) => void;
   onQueueSelect?: (queueId: string, queueName: string) => void;
+  onEntryPointSelect?: (entryPointId: string, entryPointName: string) => void;
   onDialNumberSelect?: (dialNumber: string) => void;
   allowConsultToQueue: boolean;
+  /** Options governing popover visibility/behavior */
+  consultTransferOptions?: ConsultTransferOptions;
   logger: ILogger;
 }
 
@@ -663,4 +689,37 @@ export interface TimerUIState {
   iconClassName: string;
   iconName: string;
   formattedTime: string;
+}
+
+/**
+ * Categories displayed in Consult/Transfer popover.
+ */
+export type CategoryType = 'Agents' | 'Queues' | 'Dial Number' | 'Entry Point';
+
+/** Category string constants to avoid typos and ease reuse */
+export const CATEGORY_DIAL_NUMBER: CategoryType = 'Dial Number';
+export const CATEGORY_ENTRY_POINT: CategoryType = 'Entry Point';
+export const CATEGORY_QUEUES: CategoryType = 'Queues';
+export const CATEGORY_AGENTS: CategoryType = 'Agents';
+
+/**
+ * Parameters for `useConsultTransferPopover` hook.
+ */
+export type UseConsultTransferParams = {
+  showDialNumberTab: boolean;
+  showEntryPointTab: boolean;
+  getAddressBookEntries?: FetchPaginatedList<AddressBookEntry>;
+  getEntryPoints?: FetchPaginatedList<EntryPointRecord>;
+  getQueues?: FetchPaginatedList<ContactServiceQueue>;
+  logger?: ILogger;
+};
+
+/**
+ * Options to configure Consult/Transfer popover behavior and visibility.
+ */
+export interface ConsultTransferOptions {
+  /** Show the Dial Number tab. Defaults to true. */
+  showDialNumberTab?: boolean;
+  /** Show the Entry Point tab. Defaults to true. */
+  showEntryPointTab?: boolean;
 }
