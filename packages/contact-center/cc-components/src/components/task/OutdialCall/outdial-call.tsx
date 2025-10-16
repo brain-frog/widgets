@@ -2,7 +2,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import {OutdialAniEntry, OutdialCallComponentProps} from '../task.types';
 import './outdial-call.style.scss';
 import {withMetrics} from '@webex/cc-ui-logging';
-import {Input, Button, Option, Select, Tab} from '@momentum-design/components/dist/react';
+import {Input, Button, Option, Select} from '@momentum-design/components/dist/react';
 import {OutdialStrings, KEY_LIST} from './constants';
 
 /**
@@ -70,16 +70,6 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
 
   return (
     <article className="keypad">
-      <header role="tablist" id="outdial-tablist">
-        <Tab
-          active={true}
-          text={OutdialStrings.DIALPAD_LABEL}
-          iconName={'dialpad-bold'}
-          tabId="dialpad-tab"
-          variant="pill"
-          aria-controls="dialpad-panel"
-        ></Tab>
-      </header>
       <Input
         className="outdial-input"
         id="outdial-number-input"
