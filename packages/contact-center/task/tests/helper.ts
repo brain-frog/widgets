@@ -2,7 +2,15 @@ import {renderHook, act, waitFor} from '@testing-library/react';
 import {useIncomingTask, useTaskList, useCallControl, useOutdialCall} from '../src/helper';
 import * as taskUtils from '../src/Utils/task-util';
 import {AddressBookEntriesResponse, EntryPointListResponse, TASK_EVENTS, IContactCenter} from '@webex/cc-store';
-import {mockAgents, mockCC, mockQueueDetails, mockTask} from '@webex/test-fixtures';
+import {
+  mockAgents,
+  mockCC,
+  mockQueueDetails,
+  mockTask,
+  mockAniEntries,
+  ccMock,
+  mockCCWithAni,
+} from '@webex/test-fixtures';
 import store from '@webex/cc-store';
 import React from 'react';
 const mockGetControlsVisibility = jest.spyOn(taskUtils, 'getControlsVisibility');
@@ -25,13 +33,7 @@ const onTaskAccepted = jest.fn().mockImplementation(() => {});
 const onTaskDeclined = jest.fn();
 const onTaskSelected = jest.fn().mockImplementation(() => {});
 
-const logger = {
-  error: jest.fn(),
-  log: jest.fn(),
-  warn: jest.fn(),
-  info: jest.fn(),
-  trace: jest.fn(),
-};
+const logger = mockCC.LoggerProxy;
 
 // Override the wrapupCodes property before your tests run
 beforeAll(() => {
@@ -751,13 +753,7 @@ describe('useCallControl', () => {
     toggleMute: jest.fn(() => Promise.resolve()),
   };
 
-  const mockLogger = {
-    error: jest.fn(),
-    info: jest.fn(),
-    log: jest.fn(),
-    warn: jest.fn(),
-    trace: jest.fn(),
-  };
+  const mockLogger = mockCC.LoggerProxy;
 
   const mockOnHoldResume = jest.fn();
   const mockOnEnd = jest.fn();
@@ -2523,13 +2519,7 @@ describe('useCallControl', () => {
     const onWrapUp = jest.fn();
     const onRecordingToggle = jest.fn();
     const onToggleMute = jest.fn();
-    const logger = {
-      error: jest.fn(),
-      info: jest.fn(),
-      warn: jest.fn(),
-      log: jest.fn(),
-      trace: jest.fn(),
-    };
+    const logger = mockCC.LoggerProxy;
 
     it('should handle errors in extractConsultingAgent', () => {
       // Mock currentTask with problematic participants structure
@@ -2687,20 +2677,7 @@ describe('useCallControl', () => {
 });
 
 describe('useOutdialCall', () => {
-  const ccMock = {
-    ...mockCC,
-    startOutdial: jest.fn().mockResolvedValue('Success'),
-    getOutdialANIEntries: jest.fn().mockReturnValue([]),
-  };
-
-  const logger = {
-    info: jest.fn(),
-    error: jest.fn(),
-    trace: jest.fn(),
-    debug: jest.fn(),
-    warn: jest.fn(),
-    log: jest.fn(),
-  };
+  const logger = mockCC.LoggerProxy;
 
   const destination = '123456789';
 
@@ -2789,45 +2766,7 @@ describe('useOutdialCall', () => {
   });
 
   describe('getOutdialAniEntries', () => {
-    const mockAniEntries = [
-      {
-        organizationId: 'org1',
-        id: 'ani1',
-        version: 1,
-        name: 'Main Line',
-        number: '+1234567890',
-        createdTime: 1640995200000,
-        lastUpdatedTime: 1640995200000,
-      },
-      {
-        organizationId: 'org1',
-        id: 'ani2',
-        version: 1,
-        name: 'Support Line',
-        number: '+1987654321',
-        createdTime: 1640995200000,
-        lastUpdatedTime: 1640995200000,
-      },
-    ];
-
     it('should successfully fetch outdial ANI entries', async () => {
-      const mockCCWithAni = {
-        ...ccMock,
-        agentConfig: {
-          ...ccMock.agentConfig,
-          outdialANIId: 'test-ani-id',
-        },
-        getOutdialAniEntries: jest.fn().mockResolvedValue({
-          data: mockAniEntries,
-          meta: {
-            page: 0,
-            pageSize: 25,
-            total: 2,
-            totalPages: 1,
-          },
-        }),
-      };
-
       const {result} = renderHook(() =>
         useOutdialCall({
           cc: mockCCWithAni,
