@@ -1,33 +1,9 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {OutdialCallComponentProps} from '../task.types';
+import {OutdialAniEntry, OutdialCallComponentProps} from '../task.types';
 import './outdial-call.style.scss';
 import {withMetrics} from '@webex/cc-ui-logging';
 import {Input, Button, Option, Select, Tab} from '@momentum-design/components/dist/react';
 import {OutdialStrings, KEY_LIST} from './constants';
-
-/**
- * @interface OutdialANIEntry
- * Interface representing an ANI (Automatic Number Identification) entry returned by the
- * List Outdial ANI Entries API call.
- *
- * @property {string} organizationId - The organization ID the ANI is associated with.
- * @property {string} id - ID of this contact center ANI entry.
- * @property {number} version - The version number of the ANI entry.
- * @property {string} name - The name assigned to the ANI entry.
- * @property {string} number - The phone number associated with the ANI entry.
- * @property {number} createdTime - The timestamp(in epoch milliseconds) when the ANI entry was created.
- * @property {number} lastUpdatedTime - The timestamp(in epoch milliseconds) when the ANI entry was last updated.
- */
-interface OutdialANIEntry {
-  organizationId?: string;
-  id?: string;
-  version?: number;
-  name: string;
-  number: string;
-  createdTime?: number;
-  lastUpdatedTime?: number;
-}
-// Note: Only 'name' and 'number' are needed in this component.
 
 /**
  * OutdialCallComponent renders a dialpad UI for agents to initiate outbound calls.
@@ -46,7 +22,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
   const [destination, setDestination] = useState('');
   const [isValidNumber, setIsValidNumber] = useState('');
   const [selectedANI, setSelectedANI] = useState(undefined);
-  const [outdialANIList, setOutdialANIList] = useState<OutdialANIEntry[]>([]);
+  const [outdialANIList, setOutdialANIList] = useState<OutdialAniEntry[]>([]);
 
   // Validate the input format using regex from agent desktop
   const regExForDnSpecialChars = useMemo(
@@ -67,12 +43,12 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
       }
     };
     updateList();
-  }, [getOutdialANIEntries]);
+  }, []);
 
   /**
    * validateOutboundNumber
-   * @param e The input change event
-   * If the input is invalid, sets an error message on dialnumber input
+   * @param value the dial number to validate
+   * If the input is invalid, sets an error message on dial number input
    */
   const validateOutboundNumber = (value: string) => {
     if (value && !regExForDnSpecialChars.test(value)) {
@@ -139,7 +115,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
           setSelectedANI(event.detail.value);
         }}
       >
-        {outdialANIList.map((option: OutdialANIEntry, index: number) => {
+        {outdialANIList.map((option: OutdialAniEntry, index: number) => {
           return (
             <Option
               selected={option.number === selectedANI}
