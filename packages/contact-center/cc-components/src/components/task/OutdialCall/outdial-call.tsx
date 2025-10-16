@@ -33,16 +33,19 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
   // useEffect and useState to allow for async fetching of outdial ANI entries
   useEffect(() => {
     // Give Select an empty list if outdial ANI entries are not provided
-    const updateList = async () => {
+    const updateOutdialANIList = async () => {
       try {
         const result = await getOutdialANIEntries();
         setOutdialANIList(result);
       } catch (error) {
-        logger?.error('Error fetching outdial ANI entries:', error);
+        logger?.error(`CC-Widgets: Task: Error fetching outdial ANI entries: ${error}`, {
+          module: 'OutdialCallComponent',
+          method: 'updateOutdialANIList',
+        });
         setOutdialANIList([]);
       }
     };
-    updateList();
+    updateOutdialANIList();
   }, []);
 
   /**
@@ -97,7 +100,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
       <Select
         className="outdial-input"
         label={OutdialStrings.ANI_SELECT_LABEL}
-        id="outdial-ani-option"
+        id="outdial-ani-option-select"
         name="outdial-ani-option-select"
         data-testid="outdial-ani-option-select"
         placeholder={OutdialStrings.ANI_SELECT_PLACEHOLDER}

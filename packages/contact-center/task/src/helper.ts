@@ -936,8 +936,8 @@ export const useOutdialCall = (props: useOutdialCallProps) => {
       const result = await cc.getOutdialAniEntries({outdialANI: outdialANIId});
       return result;
     } catch (error) {
-      logger.error(`Error fetching Outdial ANI entries: ${error}`, {
-        module: 'widget-OutdialCall#helper.ts',
+      logger.error(`CC-Widgets: Task: Error fetching Outdial ANI entries: ${error}`, {
+        module: 'useOutdialCall',
         method: 'getOutdialANIEntries',
       });
       throw error;

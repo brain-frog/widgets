@@ -499,12 +499,12 @@ export interface OutdialCallProps {
   /**
    * Function to start outdial call.
    */
-  startOutdial: (destination: string, origin: string | undefined) => void;
+  startOutdial: (destination: string, origin?: string) => void;
 
   /**
    * Function to get a list of Outdial ANI entries.
    */
-  getOutdialANIEntries?: () => Array<OutdialAniEntry>;
+  getOutdialANIEntries: () => Array<OutdialAniEntry>;
 
   /**
    * CC SDK Instance.

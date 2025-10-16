@@ -2787,6 +2787,309 @@ describe('useOutdialCall', () => {
     expect(ccMock.startOutdial).not.toHaveBeenCalled();
     expect(logger.info).not.toHaveBeenCalled();
   });
+
+  describe('getOutdialAniEntries', () => {
+    const mockAniEntries = [
+      {
+        organizationId: 'org1',
+        id: 'ani1',
+        version: 1,
+        name: 'Main Line',
+        number: '+1234567890',
+        createdTime: 1640995200000,
+        lastUpdatedTime: 1640995200000,
+      },
+      {
+        organizationId: 'org1',
+        id: 'ani2',
+        version: 1,
+        name: 'Support Line',
+        number: '+1987654321',
+        createdTime: 1640995200000,
+        lastUpdatedTime: 1640995200000,
+      },
+    ];
+
+    it('should successfully fetch outdial ANI entries', async () => {
+      const mockCCWithAni = {
+        ...ccMock,
+        agentConfig: {
+          ...ccMock.agentConfig,
+          outdialANIId: 'test-ani-id',
+        },
+        getOutdialAniEntries: jest.fn().mockResolvedValue({
+          data: mockAniEntries,
+          meta: {
+            page: 0,
+            pageSize: 25,
+            total: 2,
+            totalPages: 1,
+          },
+        }),
+      };
+
+      const {result} = renderHook(() =>
+        useOutdialCall({
+          cc: mockCCWithAni,
+          logger,
+        })
+      );
+
+      const aniEntries = await act(async () => {
+        return await result.current.getOutdialANIEntries();
+      });
+
+      expect(mockCCWithAni.getOutdialAniEntries).toHaveBeenCalledWith({
+        outdialANI: 'test-ani-id',
+      });
+      expect(aniEntries).toEqual({
+        data: mockAniEntries,
+        meta: {
+          page: 0,
+          pageSize: 25,
+          total: 2,
+          totalPages: 1,
+        },
+      });
+    });
+
+    it('should throw error when no outdialANIId is configured', async () => {
+      const mockCCWithoutAni = {
+        ...ccMock,
+        agentConfig: {
+          ...ccMock.agentConfig,
+          outdialANIId: undefined,
+        },
+        getOutdialAniEntries: jest.fn(),
+      };
+
+      const {result} = renderHook(() =>
+        useOutdialCall({
+          cc: mockCCWithoutAni,
+          logger,
+        })
+      );
+
+      await act(async () => {
+        await expect(result.current.getOutdialANIEntries()).rejects.toThrow('No OutdialANI Id received.');
+      });
+
+      expect(mockCCWithoutAni.getOutdialAniEntries).not.toHaveBeenCalled();
+      expect(logger.error).toHaveBeenCalledWith(
+        'CC-Widgets: Task: Error fetching Outdial ANI entries: Error: No OutdialANI Id received.',
+        {
+          module: 'useOutdialCall',
+          method: 'getOutdialANIEntries',
+        }
+      );
+    });
+
+    it('should throw error when outdialANIId is empty string', async () => {
+      const mockCCWithEmptyAni = {
+        ...ccMock,
+        agentConfig: {
+          ...ccMock.agentConfig,
+          outdialANIId: '',
+        },
+        getOutdialAniEntries: jest.fn(),
+      };
+
+      const {result} = renderHook(() =>
+        useOutdialCall({
+          cc: mockCCWithEmptyAni,
+          logger,
+        })
+      );
+
+      await act(async () => {
+        await expect(result.current.getOutdialANIEntries()).rejects.toThrow('No OutdialANI Id received.');
+      });
+
+      expect(mockCCWithEmptyAni.getOutdialAniEntries).not.toHaveBeenCalled();
+      expect(logger.error).toHaveBeenCalledWith(
+        'CC-Widgets: Task: Error fetching Outdial ANI entries: Error: No OutdialANI Id received.',
+        {
+          module: 'useOutdialCall',
+          method: 'getOutdialANIEntries',
+        }
+      );
+    });
+
+    it('should throw error when agentConfig is null', async () => {
+      const mockCCWithNullConfig = {
+        ...ccMock,
+        agentConfig: null,
+        getOutdialAniEntries: jest.fn(),
+      };
+
+      const {result} = renderHook(() =>
+        useOutdialCall({
+          cc: mockCCWithNullConfig,
+          logger,
+        })
+      );
+
+      await act(async () => {
+        await expect(result.current.getOutdialANIEntries()).rejects.toThrow('No OutdialANI Id received.');
+      });
+
+      expect(mockCCWithNullConfig.getOutdialAniEntries).not.toHaveBeenCalled();
+      expect(logger.error).toHaveBeenCalledWith(
+        'CC-Widgets: Task: Error fetching Outdial ANI entries: Error: No OutdialANI Id received.',
+        {
+          module: 'useOutdialCall',
+          method: 'getOutdialANIEntries',
+        }
+      );
+    });
+
+    it('should handle API errors when fetching ANI entries', async () => {
+      const apiError = new Error('API request failed');
+      const mockCCWithApiError = {
+        ...ccMock,
+        agentConfig: {
+          ...ccMock.agentConfig,
+          outdialANIId: 'test-ani-id',
+        },
+        getOutdialAniEntries: jest.fn().mockRejectedValue(apiError),
+      };
+
+      const {result} = renderHook(() =>
+        useOutdialCall({
+          cc: mockCCWithApiError,
+          logger,
+        })
+      );
+
+      await act(async () => {
+        await expect(result.current.getOutdialANIEntries()).rejects.toThrow('API request failed');
+      });
+
+      expect(mockCCWithApiError.getOutdialAniEntries).toHaveBeenCalledWith({
+        outdialANI: 'test-ani-id',
+      });
+      expect(logger.error).toHaveBeenCalledWith(
+        'CC-Widgets: Task: Error fetching Outdial ANI entries: Error: API request failed',
+        {
+          module: 'useOutdialCall',
+          method: 'getOutdialANIEntries',
+        }
+      );
+    });
+
+    it('should handle empty ANI entries response', async () => {
+      const mockCCWithEmptyResponse = {
+        ...ccMock,
+        agentConfig: {
+          ...ccMock.agentConfig,
+          outdialANIId: 'test-ani-id',
+        },
+        getOutdialAniEntries: jest.fn().mockResolvedValue({
+          data: [],
+          meta: {
+            page: 0,
+            pageSize: 25,
+            total: 0,
+            totalPages: 0,
+          },
+        }),
+      };
+
+      const {result} = renderHook(() =>
+        useOutdialCall({
+          cc: mockCCWithEmptyResponse,
+          logger,
+        })
+      );
+
+      const aniEntries = await act(async () => {
+        return await result.current.getOutdialANIEntries();
+      });
+
+      expect(mockCCWithEmptyResponse.getOutdialAniEntries).toHaveBeenCalledWith({
+        outdialANI: 'test-ani-id',
+      });
+      expect(aniEntries).toEqual({
+        data: [],
+        meta: {
+          page: 0,
+          pageSize: 25,
+          total: 0,
+          totalPages: 0,
+        },
+      });
+    });
+
+    it('should handle network timeout errors', async () => {
+      const timeoutError = new Error('Request timeout');
+      const mockCCWithTimeout = {
+        ...ccMock,
+        agentConfig: {
+          ...ccMock.agentConfig,
+          outdialANIId: 'test-ani-id',
+        },
+        getOutdialAniEntries: jest.fn().mockRejectedValue(timeoutError),
+      };
+
+      const {result} = renderHook(() =>
+        useOutdialCall({
+          cc: mockCCWithTimeout,
+          logger,
+        })
+      );
+
+      await act(async () => {
+        await expect(result.current.getOutdialANIEntries()).rejects.toThrow('Request timeout');
+      });
+
+      expect(mockCCWithTimeout.getOutdialAniEntries).toHaveBeenCalledWith({
+        outdialANI: 'test-ani-id',
+      });
+      expect(logger.error).toHaveBeenCalledWith(
+        'CC-Widgets: Task: Error fetching Outdial ANI entries: Error: Request timeout',
+        {
+          module: 'useOutdialCall',
+          method: 'getOutdialANIEntries',
+        }
+      );
+    });
+
+    it('should pass correct parameters to getOutdialAniEntries', async () => {
+      const customOutdialANIId = 'custom-ani-12345';
+      const mockCCWithCustomAni = {
+        ...ccMock,
+        agentConfig: {
+          ...ccMock.agentConfig,
+          outdialANIId: customOutdialANIId,
+        },
+        getOutdialAniEntries: jest.fn().mockResolvedValue({
+          data: mockAniEntries,
+          meta: {
+            page: 0,
+            pageSize: 25,
+            total: 2,
+            totalPages: 1,
+          },
+        }),
+      };
+
+      const {result} = renderHook(() =>
+        useOutdialCall({
+          cc: mockCCWithCustomAni,
+          logger,
+        })
+      );
+
+      await act(async () => {
+        await result.current.getOutdialANIEntries();
+      });
+
+      expect(mockCCWithCustomAni.getOutdialAniEntries).toHaveBeenCalledWith({
+        outdialANI: customOutdialANIId,
+      });
+      expect(mockCCWithCustomAni.getOutdialAniEntries).toHaveBeenCalledTimes(1);
+    });
+  });
   describe('useOutdialCall Error Handling', () => {
     it('should handle errors in startOutdial', () => {
       const mockErrorCC = {
