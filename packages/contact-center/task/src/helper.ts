@@ -9,6 +9,7 @@ import store, {
   PaginatedListParams,
 } from '@webex/cc-store';
 import {findHoldTimestamp, getControlsVisibility} from './Utils/task-util';
+import {OutdialAniEntriesResponse} from '@webex/contact-center/dist/types/services/config/types';
 
 const ENGAGED_LABEL = 'ENGAGED';
 const ENGAGED_USERNAME = 'Engaged';
@@ -924,9 +925,9 @@ export const useOutdialCall = (props: useOutdialCallProps) => {
 
   /**
    * Fetches the Outdial ANI entries for the current agent.
-   * @returns An array of Outdial ANI entries.
+   * @returns A promise with an array of Outdial ANI entries.
    */
-  const getOutdialANIEntries = async () => {
+  const getOutdialANIEntries = async (): Promise<OutdialAniEntriesResponse> => {
     try {
       const agentProfile = cc.agentConfig;
       const outdialANIId = agentProfile?.outdialANIId;

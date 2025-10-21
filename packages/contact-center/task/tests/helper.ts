@@ -8,7 +8,7 @@ import {
   mockQueueDetails,
   mockTask,
   mockAniEntries,
-  ccMock,
+  mockOutdialCallProps,
   mockCCWithAni,
 } from '@webex/test-fixtures';
 import store from '@webex/cc-store';
@@ -2694,7 +2694,7 @@ describe('useOutdialCall', () => {
   it('should successfully start an outdial call', async () => {
     const {result} = renderHook(() =>
       useOutdialCall({
-        cc: ccMock,
+        cc: mockOutdialCallProps,
         logger,
       })
     );
@@ -2703,14 +2703,14 @@ describe('useOutdialCall', () => {
       await result.current.startOutdial(destination);
     });
 
-    expect(ccMock.startOutdial).toHaveBeenCalledWith(destination, undefined);
+    expect(mockOutdialCallProps.startOutdial).toHaveBeenCalledWith(destination, undefined);
     expect(logger.info).toHaveBeenCalledWith('Outdial call started', 'Success');
   });
 
   it('should show alert when destination is empty or only contains spaces', async () => {
     const {result} = renderHook(() =>
       useOutdialCall({
-        cc: ccMock,
+        cc: mockCC,
         logger,
       })
     );
@@ -2720,18 +2720,18 @@ describe('useOutdialCall', () => {
     });
 
     expect(global.alert).toHaveBeenCalledWith('Destination number is required, it cannot be empty');
-    expect(ccMock.startOutdial).not.toHaveBeenCalled();
+    expect(mockOutdialCallProps.startOutdial).not.toHaveBeenCalled();
   });
 
   it('should handle errors when starting outdial call fails', async () => {
-    const errormockCC = {
-      ...mockCC,
+    const mockCCWithError = {
+      ...mockOutdialCallProps,
       startOutdial: jest.fn().mockRejectedValue(new Error('Outdial call failed')),
     };
 
     const {result} = renderHook(() =>
       useOutdialCall({
-        cc: errormockCC,
+        cc: mockCCWithError,
         logger,
       })
     );
@@ -2740,7 +2740,7 @@ describe('useOutdialCall', () => {
       await result.current.startOutdial(destination);
     });
 
-    expect(errormockCC.startOutdial).toHaveBeenCalledWith(destination, undefined);
+    expect(mockCCWithError.startOutdial).toHaveBeenCalledWith(destination, undefined);
     expect(logger.error).toHaveBeenCalledWith('Error: Outdial call failed', {
       module: 'widget-OutdialCall#helper.ts',
       method: 'startOutdial',
@@ -2750,7 +2750,7 @@ describe('useOutdialCall', () => {
   it('should return if no destination is provided', async () => {
     const {result} = renderHook(() =>
       useOutdialCall({
-        cc: ccMock,
+        cc: mockCC,
         logger,
       })
     );
@@ -2761,7 +2761,7 @@ describe('useOutdialCall', () => {
       await result.current.startOutdial(invalidDestination);
     });
 
-    expect(ccMock.startOutdial).not.toHaveBeenCalled();
+    expect(mockOutdialCallProps.startOutdial).not.toHaveBeenCalled();
     expect(logger.info).not.toHaveBeenCalled();
   });
 
@@ -2794,9 +2794,9 @@ describe('useOutdialCall', () => {
 
     it('should throw error when no outdialANIId is configured', async () => {
       const mockCCWithoutAni = {
-        ...ccMock,
+        ...mockCC,
         agentConfig: {
-          ...ccMock.agentConfig,
+          ...mockCC.agentConfig,
           outdialANIId: undefined,
         },
         getOutdialAniEntries: jest.fn(),
@@ -2825,9 +2825,9 @@ describe('useOutdialCall', () => {
 
     it('should throw error when outdialANIId is empty string', async () => {
       const mockCCWithEmptyAni = {
-        ...ccMock,
+        ...mockCC,
         agentConfig: {
-          ...ccMock.agentConfig,
+          ...mockCC.agentConfig,
           outdialANIId: '',
         },
         getOutdialAniEntries: jest.fn(),
@@ -2856,7 +2856,7 @@ describe('useOutdialCall', () => {
 
     it('should throw error when agentConfig is null', async () => {
       const mockCCWithNullConfig = {
-        ...ccMock,
+        ...mockCC,
         agentConfig: null,
         getOutdialAniEntries: jest.fn(),
       };
@@ -2885,11 +2885,7 @@ describe('useOutdialCall', () => {
     it('should handle API errors when fetching ANI entries', async () => {
       const apiError = new Error('API request failed');
       const mockCCWithApiError = {
-        ...ccMock,
-        agentConfig: {
-          ...ccMock.agentConfig,
-          outdialANIId: 'test-ani-id',
-        },
+        ...mockCCWithAni,
         getOutdialAniEntries: jest.fn().mockRejectedValue(apiError),
       };
 
@@ -2918,11 +2914,7 @@ describe('useOutdialCall', () => {
 
     it('should handle empty ANI entries response', async () => {
       const mockCCWithEmptyResponse = {
-        ...ccMock,
-        agentConfig: {
-          ...ccMock.agentConfig,
-          outdialANIId: 'test-ani-id',
-        },
+        ...mockCCWithAni,
         getOutdialAniEntries: jest.fn().mockResolvedValue({
           data: [],
           meta: {
@@ -2962,11 +2954,7 @@ describe('useOutdialCall', () => {
     it('should handle network timeout errors', async () => {
       const timeoutError = new Error('Request timeout');
       const mockCCWithTimeout = {
-        ...ccMock,
-        agentConfig: {
-          ...ccMock.agentConfig,
-          outdialANIId: 'test-ani-id',
-        },
+        ...mockCCWithAni,
         getOutdialAniEntries: jest.fn().mockRejectedValue(timeoutError),
       };
 
@@ -2996,20 +2984,10 @@ describe('useOutdialCall', () => {
     it('should pass correct parameters to getOutdialAniEntries', async () => {
       const customOutdialANIId = 'custom-ani-12345';
       const mockCCWithCustomAni = {
-        ...ccMock,
+        ...mockCCWithAni,
         agentConfig: {
-          ...ccMock.agentConfig,
           outdialANIId: customOutdialANIId,
         },
-        getOutdialAniEntries: jest.fn().mockResolvedValue({
-          data: mockAniEntries,
-          meta: {
-            page: 0,
-            pageSize: 25,
-            total: 2,
-            totalPages: 1,
-          },
-        }),
       };
 
       const {result} = renderHook(() =>

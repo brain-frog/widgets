@@ -504,7 +504,7 @@ export interface OutdialCallProps {
   /**
    * Function to get a list of Outdial ANI entries.
    */
-  getOutdialANIEntries: () => Array<OutdialAniEntry>;
+  getOutdialANIEntries: () => Promise<OutdialAniEntry[]>;
 
   /**
    * CC SDK Instance.

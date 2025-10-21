@@ -72,7 +72,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
   };
 
   return (
-    <article className="keypad">
+    <article className="keypad" data-testid="outdial-call-container">
       <Input
         className="outdial-input"
         id="outdial-number-input"
@@ -88,7 +88,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
           validateOutboundNumber(inputValue);
         }}
       />
-      <ul className="keys">
+      <ul className="keys" data-testid="outdial-keypad-keys">
         {KEY_LIST.map((key) => (
           <li key={key}>
             <Button className="key button" onClick={() => handleOnClick(key)}>

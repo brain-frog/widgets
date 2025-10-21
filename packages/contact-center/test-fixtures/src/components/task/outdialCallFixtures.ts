@@ -1,6 +1,6 @@
 import {mockCC} from '../../fixtures';
 
-export const ccMock = {
+export const mockOutdialCallProps = {
   ...mockCC,
   startOutdial: jest.fn().mockResolvedValue('Success'),
   getOutdialANIEntries: jest.fn().mockReturnValue([]),
@@ -28,9 +28,9 @@ export const mockAniEntries = [
 ];
 
 export const mockCCWithAni = {
-  ...ccMock,
+  ...mockCC,
   agentConfig: {
-    ...ccMock.agentConfig,
+    ...mockCC.agentConfig,
     outdialANIId: 'test-ani-id',
   },
   getOutdialAniEntries: jest.fn().mockResolvedValue({

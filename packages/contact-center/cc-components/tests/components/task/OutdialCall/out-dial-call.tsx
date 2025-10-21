@@ -1,53 +1,93 @@
 import React from 'react';
-import {render, fireEvent, screen, waitFor} from '@testing-library/react';
+import {render, fireEvent, screen, waitFor, within} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import OutdialCallComponent from '../../../../src/components/task/OutdialCall/outdial-call';
+import {KEY_LIST, OutdialStrings} from '../../../../src/components/task/OutdialCall/constants';
 import store from '@webex/cc-store';
-import type {ILogger} from '@webex/cc-store';
+import {mockCC} from '@webex/test-fixtures';
+import {OutdialCallComponentProps} from 'packages/contact-center/cc-components/src/components/task/task.types';
 
 describe('OutdialCallComponent', () => {
-  const mockStartOutdial = jest.fn();
-  const mockGetOutdialANIEntries = jest.fn().mockReturnValue([
-    {name: 'name 1', number: '1'},
-    {name: 'name 2', number: '2'},
-  ]);
-  const mockLogger: ILogger = {
-    log: jest.fn(),
-    info: jest.fn(),
-    warn: jest.fn(),
-    error: jest.fn(),
-    trace: jest.fn(),
-  };
-  const KEY_LIST = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '*', '0', '#'];
   let customEvent;
 
   // Prevent warning 'CC-Widgets: UI Metrics: No logger found'
-  store.store.logger = mockLogger;
-
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  const props = {
-    logger: mockLogger,
-    startOutdial: mockStartOutdial,
-    getOutdialANIEntries: mockGetOutdialANIEntries,
-  };
+  store.store.logger = mockCC.LoggerProxy;
 
   beforeEach(() => {
     // Create a custom event that mimics what the mdc-input component would fire
     customEvent = new Event('change', {bubbles: true});
-    mockStartOutdial.mockClear();
   });
 
-  it('renders the component correctly', () => {
-    render(<OutdialCallComponent {...props} />);
-    expect(screen.getByTestId('outdial-number-input')).toBeInTheDocument();
-    KEY_LIST.forEach((key) => {
-      expect(screen.getByText(key)).toBeInTheDocument();
+  afterEach(() => {
+    jest.clearAllMocks();
+    jest.restoreAllMocks();
+  });
+
+  const props: OutdialCallComponentProps = {
+    logger: mockCC.LoggerProxy,
+    startOutdial: jest.fn(),
+    getOutdialANIEntries: jest.fn().mockResolvedValue([
+      {name: 'name 1', number: '1'},
+      {name: 'name 2', number: '2'},
+    ]),
+  };
+  describe('renders the component correctly, should render:', () => {
+    it('article container', async () => {
+      render(<OutdialCallComponent {...props} />);
+      const article = await screen.findByTestId('outdial-call-container');
+      expect(article).toBeInTheDocument();
+      expect(article).toHaveClass('keypad');
     });
-    expect(screen.getByTestId('outdial-ani-option-select')).toBeInTheDocument();
-    expect(screen.getByTestId('outdial-call-button')).toBeInTheDocument();
+
+    it('dial number input', async () => {
+      render(<OutdialCallComponent {...props} />);
+      const outdialNumberInput = await screen.findByTestId('outdial-number-input');
+      expect(outdialNumberInput).toBeInTheDocument();
+      expect(outdialNumberInput).toHaveClass('outdial-input');
+      expect(outdialNumberInput).toHaveAttribute('help-text');
+      expect(outdialNumberInput).toHaveAttribute('help-text-type', 'default');
+      expect(outdialNumberInput).toHaveAttribute('name', 'outdial-number-input');
+      expect(outdialNumberInput).toHaveValue('');
+    });
+
+    it('dial-pad keys', async () => {
+      render(<OutdialCallComponent {...props} />);
+      const keypadContainer = await screen.findByTestId('outdial-keypad-keys');
+      const keypadKeys = within(keypadContainer).getAllByRole('button');
+      expect(keypadKeys).toHaveLength(KEY_LIST.length);
+      keypadKeys.forEach((button) => {
+        expect(button).toHaveClass('key button');
+        expect(button).toHaveAttribute('color', 'default');
+        expect(button).toHaveAttribute('data-btn-type', 'pill');
+        expect(button).toHaveAttribute('size', '32');
+        expect(button).toHaveAttribute('tabindex', '0');
+        expect(button).toHaveAttribute('type', 'button');
+        expect(button).toHaveAttribute('variant', 'primary');
+      });
+    });
+
+    it('outdial ani option select', async () => {
+      render(<OutdialCallComponent {...props} />);
+      const outdialAniSelect = await screen.findByTestId('outdial-ani-option-select');
+      expect(outdialAniSelect).toHaveClass('outdial-input');
+      expect(outdialAniSelect).toHaveAttribute('help-text-type', 'default');
+      expect(outdialAniSelect).toHaveAttribute('label', OutdialStrings.ANI_SELECT_LABEL);
+      expect(outdialAniSelect).toHaveAttribute('name', 'outdial-ani-option-select');
+      expect(outdialAniSelect).toHaveTextContent(/name 1/);
+    });
+
+    it('call button', async () => {
+      render(<OutdialCallComponent {...props} />);
+      const callButton = await screen.findByTestId('outdial-call-button');
+      expect(callButton).toBeDisabled();
+      expect(callButton).toHaveAttribute('color', 'default');
+      expect(callButton).toHaveAttribute('data-btn-type', 'icon');
+      expect(callButton).toHaveAttribute('prefix-icon', 'handset-regular');
+      expect(callButton).toHaveAttribute('size', '40');
+      expect(callButton).toHaveAttribute('tabindex', '-1');
+      expect(callButton).toHaveAttribute('type', 'button');
+      expect(callButton).toHaveAttribute('variant', 'primary');
+    });
   });
 
   it('updates input value when typing directly', async () => {
@@ -65,34 +105,37 @@ describe('OutdialCallComponent', () => {
     });
   });
 
-  it('updates input value when clicking keypad buttons', () => {
+  it('updates input value when clicking keypad buttons', async () => {
     render(<OutdialCallComponent {...props} />);
-    fireEvent.click(screen.getByText('1'));
-    fireEvent.click(screen.getByText('2'));
-    fireEvent.click(screen.getByText('3'));
-    expect(screen.getByTestId('outdial-number-input')).toHaveValue('123');
+    await screen.findByTestId('outdial-ani-option-1');
+    fireEvent.click(await screen.findByText('1'));
+    fireEvent.click(await screen.findByText('2'));
+    fireEvent.click(await screen.findByText('3'));
+    expect(await screen.findByTestId('outdial-number-input')).toHaveValue('123');
   });
 
-  it('calls startOutdial with correct payload when clicking call button', () => {
+  it('calls startOutdial with correct payload when clicking call button', async () => {
     render(<OutdialCallComponent {...props} />);
-    const input = screen.getByTestId('outdial-number-input');
+    const input = await screen.findByTestId('outdial-number-input');
     Object.defineProperty(customEvent, 'target', {
       writable: false,
       value: {value: '123'},
     });
     fireEvent(input, customEvent);
 
-    const callButton = screen.getByTestId('outdial-call-button');
+    const callButton = await screen.findByTestId('outdial-call-button');
     fireEvent.click(callButton);
 
-    expect(mockStartOutdial).toHaveBeenCalledWith('123', undefined);
+    waitFor(() => {
+      expect(props.getOutdialANIEntries).toHaveBeenCalledWith('123', undefined);
+    });
   });
 
-  it('allows special characters (* # +) from keypad', () => {
+  it('allows special characters (* # +) from keypad', async () => {
     render(<OutdialCallComponent {...props} />);
-    fireEvent.click(screen.getByText('*'));
-    fireEvent.click(screen.getByText('#'));
-    expect(screen.getByTestId('outdial-number-input')).toHaveValue('*#');
+    fireEvent.click(await screen.findByText('*'));
+    fireEvent.click(await screen.findByText('#'));
+    expect(await screen.findByTestId('outdial-number-input')).toHaveValue('*#');
   });
 
   it('shows error help text when invalid characters are entered', async () => {
@@ -118,10 +161,10 @@ describe('OutdialCallComponent', () => {
   });
 
   it('has no ANI entry options when the entry list is empty', async () => {
-    render(<OutdialCallComponent startOutdial={mockStartOutdial} outdialANIEntries={[]} />);
+    render(<OutdialCallComponent startOutdial={props.startOutdial} outdialANIEntries={[]} />);
     const select = await screen.findByTestId('outdial-ani-option-select');
     fireEvent.click(select);
-    expect(screen.queryByText('name 1')).not.toBeInTheDocument();
+    expect(await screen.queryByText('name 1')).not.toBeInTheDocument();
   });
 
   it('sets selected ani when an option is selected', async () => {
