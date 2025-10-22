@@ -1,3 +1,11 @@
+## [1.28.2](https://github.com/webex/widgets/compare/v1.28.1...v1.28.2) (2025-10-22)
+
+
+### Bug Fixes
+
+* **meeting-widget:** add custom focus management and arrow key navigation ([#533](https://github.com/webex/widgets/issues/533)) ([766a646](https://github.com/webex/widgets/commit/766a646ba187250ca7f412e8f00a068c01ed0a5e))
+* **Meeting Widget:** stop screen readers focusing on visually hidden controls ([#532](https://github.com/webex/widgets/issues/532)) ([d728896](https://github.com/webex/widgets/commit/d72889685890bdefdb67b2d50dcbc281ca336052))
+
 ## [1.28.1](https://github.com/webex/widgets/compare/v1.28.0...v1.28.1) (2025-05-28)
 
 
