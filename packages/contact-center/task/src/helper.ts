@@ -9,6 +9,7 @@ import store, {
   PaginatedListParams,
 } from '@webex/cc-store';
 import {findHoldTimestamp, getControlsVisibility} from './Utils/task-util';
+import {OutdialAniEntriesResponse} from '@webex/contact-center/dist/types/services/config/types';
 
 const ENGAGED_LABEL = 'ENGAGED';
 const ENGAGED_USERNAME = 'Engaged';
@@ -896,7 +897,7 @@ export const useCallControl = (props: useCallControlProps) => {
 export const useOutdialCall = (props: useOutdialCallProps) => {
   const {cc, logger} = props;
 
-  const startOutdial = (destination: string) => {
+  const startOutdial = (destination: string, origin: string = undefined) => {
     try {
       // Perform validation on destination number.
       if (!destination || !destination.trim()) {
@@ -904,7 +905,7 @@ export const useOutdialCall = (props: useOutdialCallProps) => {
         return;
       }
       //@ts-expect-error  To be fixed in SDK - https://jira-eng-sjc12.cisco.com/jira/browse/CAI-6762
-      cc.startOutdial(destination)
+      cc.startOutdial(destination, origin)
         .then((response) => {
           logger.info('Outdial call started', response);
         })
@@ -922,7 +923,30 @@ export const useOutdialCall = (props: useOutdialCallProps) => {
     }
   };
 
+  /**
+   * Fetches the Outdial ANI entries for the current agent.
+   * @returns A promise with an array of Outdial ANI entries.
+   */
+  const getOutdialANIEntries = async (): Promise<OutdialAniEntriesResponse> => {
+    try {
+      const agentProfile = cc.agentConfig;
+      const outdialANIId = agentProfile?.outdialANIId;
+      if (!outdialANIId) {
+        throw Error('No OutdialANI Id received.');
+      }
+      const result = await cc.getOutdialAniEntries({outdialANI: outdialANIId});
+      return result;
+    } catch (error) {
+      logger.error(`CC-Widgets: Task: Error fetching Outdial ANI entries: ${error}`, {
+        module: 'useOutdialCall',
+        method: 'getOutdialANIEntries',
+      });
+      throw error;
+    }
+  };
+
   return {
     startOutdial,
+    getOutdialANIEntries,
   };
 };
