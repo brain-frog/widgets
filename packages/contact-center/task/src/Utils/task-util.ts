@@ -17,7 +17,6 @@ import {
   MEDIA_TYPE_CHAT,
   MEDIA_TYPE_EMAIL,
   MAX_PARTICIPANTS_IN_MULTIPARTY_CONFERENCE,
-  MAX_PARTICIPANTS_IN_THREE_PARTY_CONFERENCE,
 } from './constants';
 import {DeviceTypeFlags} from '../task.types';
 
@@ -177,18 +176,12 @@ export function getConferenceButtonVisibility(
   webRtcEnabled: boolean,
   isCall: boolean,
   isChat: boolean,
-  isBeingConsulted: boolean
+  isBeingConsulted: boolean,
+  conferenceEnabled: boolean
 ): Visibility {
-  const isVisible = ((isBrowser && isCall && webRtcEnabled) || isChat) && !isBeingConsulted;
+  const isVisible = ((isBrowser && isCall && webRtcEnabled) || isChat) && !isBeingConsulted && conferenceEnabled;
 
   return {isVisible, isEnabled: true};
-}
-
-/**
- * Get visibility for Conference In Progress indicator
- */
-export function getConferenceInProgressVisibility(task: ITask): boolean {
-  return task?.data?.isConferenceInProgress ?? false;
 }
 
 /**
@@ -199,9 +192,10 @@ export function getExitConferenceButtonVisibility(
   isConsultInitiatedOrAccepted: boolean,
   consultCallHeld: boolean,
   isHeld: boolean,
-  isConsultCompleted: boolean
+  isConsultCompleted: boolean,
+  conferenceEnabled: boolean
 ): Visibility {
-  const isVisible = isConferenceInProgress && !isConsultInitiatedOrAccepted;
+  const isVisible = isConferenceInProgress && !isConsultInitiatedOrAccepted && conferenceEnabled;
   const isConferenceWithConsultNotHeld = isConferenceInProgress && isConsultInitiatedOrAccepted && !consultCallHeld;
   // Disable if: conference with consult not held OR (held AND in conference AND consult completed)
   const isEnabled = !isConferenceWithConsultNotHeld && !(isHeld && isConferenceInProgress && isConsultCompleted);
@@ -217,9 +211,10 @@ export function getMergeConferenceButtonVisibility(
   isConsultAccepted: boolean,
   consultCallHeld: boolean,
   isConferenceInProgress: boolean,
-  isCustomerInCall: boolean
+  isCustomerInCall: boolean,
+  conferenceEnabled: boolean
 ): Visibility {
-  const isVisible = isConsultInitiatedOrAccepted && isCustomerInCall;
+  const isVisible = isConsultInitiatedOrAccepted && isCustomerInCall && conferenceEnabled;
   const isConferenceWithConsultNotHeld = isConferenceInProgress && isConsultInitiatedOrAccepted && !consultCallHeld;
   const isEnabled = isConsultAccepted && consultCallHeld && !isConferenceWithConsultNotHeld;
 
@@ -291,9 +286,10 @@ export function getMergeConferenceConsultButtonVisibility(
   isConsultAccepted: boolean,
   isConsultInitiated: boolean,
   consultCallHeld: boolean,
-  isCustomerInCall: boolean
+  isCustomerInCall: boolean,
+  conferenceEnabled: boolean
 ): Visibility {
-  const isVisible = isConsultAccepted || isConsultInitiated;
+  const isVisible = (isConsultAccepted || isConsultInitiated) && conferenceEnabled;
   const isEnabled = !consultCallHeld && isConsultAccepted && isCustomerInCall;
 
   return {isVisible, isEnabled};
@@ -377,7 +373,7 @@ export function getWrapupButtonVisibility(task: ITask): Visibility {
  * @param featureFlags Feature flags configuration object
  * @param task The task object
  * @param agentId The agent ID
- * @param multiPartyConferenceEnabled Whether multiparty conference is enabled
+ * @param conferenceEnabled Whether conference is enabled
  * @param logger Optional logger instance
  * @returns An object containing the visibility and state of various controls
  */
@@ -386,7 +382,7 @@ export function getControlsVisibility(
   featureFlags: {[key: string]: boolean},
   task: ITask,
   agentId: string,
-  multiPartyConferenceEnabled: boolean,
+  conferenceEnabled: boolean,
   logger?: ILogger
 ) {
   try {
@@ -409,7 +405,7 @@ export function getControlsVisibility(
 
     // Calculate task state flags
     const isTransferVisibility = isBrowser ? webRtcEnabled : true;
-    const isConferenceInProgress = task?.data?.isConferenceInProgress ?? false;
+    const isConferenceInProgress = (task?.data?.isConferenceInProgress && conferenceEnabled) ?? false;
     const isConsultInProgress = getIsConsultInProgress(task);
     const isHeld = findHoldStatus(task, 'mainCall', agentId);
     const isCustomerInCall = getIsCustomerInCall(task);
@@ -419,9 +415,6 @@ export function getControlsVisibility(
 
     // Calculate conference participants count
     const conferenceParticipantsCount = getConferenceParticipantsCount(task);
-    const maxParticipantsInConference = multiPartyConferenceEnabled
-      ? MAX_PARTICIPANTS_IN_MULTIPARTY_CONFERENCE
-      : MAX_PARTICIPANTS_IN_THREE_PARTY_CONFERENCE;
 
     // Calculate consult status flags (REUSED CONDITIONS)
     const isConsultInitiated = taskConsultStatus === ConsultStatus.CONSULT_INITIATED;
@@ -472,20 +465,29 @@ export function getControlsVisibility(
 
       // Transfer and conference controls
       transfer: getTransferButtonVisibility(isTransferVisibility, isConferenceInProgress, isConsultInitiatedOrAccepted),
-      conference: getConferenceButtonVisibility(isBrowser, webRtcEnabled, isCall, isChat, isBeingConsulted),
+      conference: getConferenceButtonVisibility(
+        isBrowser,
+        webRtcEnabled,
+        isCall,
+        isChat,
+        isBeingConsulted,
+        conferenceEnabled
+      ),
       exitConference: getExitConferenceButtonVisibility(
         isConferenceInProgress,
         isConsultInitiatedOrAccepted,
         consultCallHeld,
         isHeld,
-        isConsultCompleted
+        isConsultCompleted,
+        conferenceEnabled
       ),
       mergeConference: getMergeConferenceButtonVisibility(
         isConsultInitiatedOrAcceptedOnly,
         isConsultAccepted,
         consultCallHeld,
         isConferenceInProgress,
-        isCustomerInCall
+        isCustomerInCall,
+        conferenceEnabled
       ),
 
       // Consult controls
@@ -495,7 +497,7 @@ export function getControlsVisibility(
         isConsultInProgress,
         isCustomerInCall,
         conferenceParticipantsCount,
-        maxParticipantsInConference,
+        MAX_PARTICIPANTS_IN_MULTIPARTY_CONFERENCE,
         isBeingConsulted,
         isHeld,
         isConsultCompleted,
@@ -524,7 +526,8 @@ export function getControlsVisibility(
         isConsultAccepted,
         isConsultInitiated,
         consultCallHeld,
-        isCustomerInCall
+        isCustomerInCall,
+        conferenceEnabled
       ),
       muteUnmuteConsult: getMuteUnmuteConsultButtonVisibility(
         isBrowser,
@@ -549,7 +552,7 @@ export function getControlsVisibility(
       wrapup: getWrapupButtonVisibility(task),
 
       // State flags
-      isConferenceInProgress: getConferenceInProgressVisibility(task),
+      isConferenceInProgress,
       isConsultInitiated,
       isConsultInitiatedAndAccepted: isConsultAccepted,
       isConsultReceived: isBeingConsulted,

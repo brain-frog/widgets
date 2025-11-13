@@ -74,6 +74,10 @@ function App() {
     const savedintegrationEnv = window.localStorage.getItem('integrationEnv');
     return savedintegrationEnv === 'true';
   });
+  const [conferenceEnabled, setConferenceEnabled] = useState(() => {
+    const savedMultiPartyConferenceEnabled = window.localStorage.getItem('conferenceEnabled');
+    return savedMultiPartyConferenceEnabled !== null ? savedMultiPartyConferenceEnabled === 'true' : true;
+  });
 
   const handleSaveStart = () => {
     setShowLoader(true);
@@ -339,6 +343,9 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem('integrationEnv', JSON.stringify(integrationEnv));
   }, [integrationEnv]);
+  useEffect(() => {
+    window.localStorage.setItem('conferenceEnabled', JSON.stringify(conferenceEnabled));
+  }, [conferenceEnabled]);
 
   useEffect(() => {
     store.setIncomingTaskCb(onIncomingTaskCB);
@@ -742,40 +749,53 @@ function App() {
                         </section>
                       </div>
                     )}
-                    {selectedWidgets.callControl && store.currentTask && (
-                      <div className="box">
-                        <section className="section-box">
-                          <fieldset className="fieldset">
-                            <legend className="legend-box">Call Control</legend>
-                            <CallControl
-                              onHoldResume={onHoldResume}
-                              onEnd={onEnd}
-                              onWrapUp={onWrapUp}
-                              onRecordingToggle={onRecordingToggle}
-                              onToggleMute={onToggleMute}
-                            />
-                          </fieldset>
-                        </section>
-                      </div>
-                    )}
-                    {selectedWidgets.callControlCAD && store.currentTask && (
-                      <div className="box">
-                        <section className="section-box">
-                          <fieldset className="fieldset">
-                            <legend className="legend-box">Call Control with Call Associated Data (CAD)</legend>
-                            <CallControlCAD
-                              onHoldResume={onHoldResume}
-                              onEnd={onEnd}
-                              onWrapUp={onWrapUp}
-                              onRecordingToggle={onRecordingToggle}
-                              callControlClassName={'call-control-outer'}
-                              callControlConsultClassName={'call-control-consult-outer'}
-                              onToggleMute={onToggleMute}
-                            />
-                          </fieldset>
-                        </section>
-                      </div>
-                    )}
+
+                    <div className="box">
+                      <section className="section-box">
+                        <fieldset className="fieldset">
+                          <legend className="legend-box">&nbsp;Call Control and Call Control with CAD&nbsp;</legend>
+                          <Checkbox
+                            checked={conferenceEnabled}
+                            aria-label="onference enabled checkbox"
+                            id="conference-enabled-checkbox"
+                            label="Enable Conference Feature"
+                            // @ts-expect-error: TODO: https://github.com/momentum-design/momentum-design/pull/1118
+                            onchange={() => {
+                              setConferenceEnabled(!conferenceEnabled);
+                            }}
+                          />
+                          {selectedWidgets.callControl && store.currentTask && (
+                            <fieldset className="fieldset">
+                              <legend className="legend-box">Call Control</legend>
+
+                              <CallControl
+                                onHoldResume={onHoldResume}
+                                onEnd={onEnd}
+                                onWrapUp={onWrapUp}
+                                onRecordingToggle={onRecordingToggle}
+                                onToggleMute={onToggleMute}
+                                conferenceEnabled={conferenceEnabled}
+                              />
+                            </fieldset>
+                          )}
+                          {selectedWidgets.callControlCAD && store.currentTask && (
+                            <fieldset className="fieldset">
+                              <legend className="legend-box">Call Control with Call Associated Data (CAD)</legend>
+                              <CallControlCAD
+                                onHoldResume={onHoldResume}
+                                onEnd={onEnd}
+                                onWrapUp={onWrapUp}
+                                onRecordingToggle={onRecordingToggle}
+                                callControlClassName={'call-control-outer'}
+                                callControlConsultClassName={'call-control-consult-outer'}
+                                onToggleMute={onToggleMute}
+                                conferenceEnabled={conferenceEnabled}
+                              />
+                            </fieldset>
+                          )}
+                        </fieldset>
+                      </section>
+                    </div>
 
                     {selectedWidgets.incomingTask && (
                       <>
