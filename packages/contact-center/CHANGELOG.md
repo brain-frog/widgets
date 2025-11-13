@@ -1,3 +1,10 @@
+# [1.28.0-ccwidgets.124](https://github.com/webex/widgets/compare/v1.28.0-ccwidgets.123...v1.28.0-ccwidgets.124) (2025-11-13)
+
+
+### Bug Fixes
+
+* **cc-task:** visibility toggle for conference feature ([#553](https://github.com/webex/widgets/issues/553)) ([ab5fd64](https://github.com/webex/widgets/commit/ab5fd64e6c8b6c9efaf85281d9b31cd5cac8a32e))
+
 # [1.28.0-ccwidgets.123](https://github.com/webex/widgets/compare/v1.28.0-ccwidgets.122...v1.28.0-ccwidgets.123) (2025-11-11)
 
 
