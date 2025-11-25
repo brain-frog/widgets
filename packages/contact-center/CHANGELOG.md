@@ -1,3 +1,10 @@
+# [1.28.0-ccwidgets.126](https://github.com/webex/widgets/compare/v1.28.0-ccwidgets.125...v1.28.0-ccwidgets.126) (2025-11-25)
+
+
+### Bug Fixes
+
+* **widgets:** fixed-outbound-fail-error ([#555](https://github.com/webex/widgets/issues/555)) ([58a2219](https://github.com/webex/widgets/commit/58a2219aa4afbac016a82206890391eb60ddf8e0))
+
 # [1.28.0-ccwidgets.125](https://github.com/webex/widgets/compare/v1.28.0-ccwidgets.124...v1.28.0-ccwidgets.125) (2025-11-21)
 
 
