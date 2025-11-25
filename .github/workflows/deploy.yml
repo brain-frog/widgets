@@ -4,8 +4,7 @@ run-name: ${{ github.actor }} is running Deploy CD
 on:
   push:
     branches: # Allow list of deployable tags and branches. Note that all allow-listed branches cannot include any `/` characters
-      - ccwidgets
-      # - next uncomment when ready to deploy next
+      - next
 
 env:
   rid: ${{ github.run_id }}-${{ github.run_number }}
@@ -142,9 +141,9 @@ jobs:
           path: "**/dist"
           key: dist-${{ env.rid }}
 
-      - name: Deploy Packages (Dry Run)
+      - name: Deploy Packages
         if: steps.check-changes.outputs.has_changes == 'true'
-        run: yarn workspaces foreach -W --dry-run --from '${{ needs.analyze-changes.outputs.yarn-recursive }}' --verbose run deploy:npm --access public --tag ${GITHUB_REF##*/}
+        run: yarn workspaces foreach -W --from '${{ needs.analyze-changes.outputs.yarn-recursive }}' --verbose run deploy:npm --access public --tag ${GITHUB_REF##*/}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
