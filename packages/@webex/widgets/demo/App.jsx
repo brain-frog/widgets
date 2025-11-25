@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { createRoot } from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 import {Button, Input, Sidebar, SidebarBody, SidebarNav, SidebarNavItem, Checkbox} from '@momentum-ui/react';
 
 import WebexMeetingsWidgetDemo from './WebexMeetingsWidgetDemo';
@@ -7,6 +7,7 @@ import WebexMeetingsWidgetDemo from './WebexMeetingsWidgetDemo';
 import '@momentum-ui/core/css/momentum-ui.min.css';
 import './App.scss';
 
+// App component for the Webex Widgets Demo
 export default function App() {
   const [tokenInput, setTokenInput] = useState('');
   const [token, setToken] = useState();
