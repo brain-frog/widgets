@@ -124,10 +124,14 @@ export interface TaskProps {
    * Agent ID of the logged-in user
    */
   agentId: string;
+  /**
+   * Flag to enable decline button on incoming task component
+   */
+  isDeclineButtonEnabled?: boolean;
 }
 
 export type IncomingTaskComponentProps = Pick<TaskProps, 'isBrowser' | 'accept' | 'reject' | 'logger'> &
-  Partial<Pick<TaskProps, 'incomingTask'>>;
+  Partial<Pick<TaskProps, 'incomingTask' | 'isDeclineButtonEnabled'>>;
 
 export type TaskListComponentProps = Pick<
   TaskProps,
@@ -516,9 +520,18 @@ export interface OutdialCallProps {
    * Logger instance for logging purpose.
    */
   logger: ILogger;
+
+  /**
+   * Boolean indicating if there's an active telephony task.
+   * Used to disable the outdial button when a telephony task is in progress.
+   */
+  isTelephonyTaskActive?: boolean;
 }
 
-export type OutdialCallComponentProps = Pick<OutdialCallProps, 'logger' | 'startOutdial' | 'getOutdialANIEntries'>;
+export type OutdialCallComponentProps = Pick<
+  OutdialCallProps,
+  'logger' | 'startOutdial' | 'getOutdialANIEntries' | 'isTelephonyTaskActive'
+>;
 
 /**
  * Interface representing the properties for CallControlListItem component.
@@ -697,6 +710,7 @@ export interface TaskListItemData {
   declineText: string | undefined;
   title: string;
   disableAccept: boolean;
+  disableDecline: boolean;
   displayState: string;
 }
 
