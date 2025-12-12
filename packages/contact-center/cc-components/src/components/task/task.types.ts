@@ -10,6 +10,8 @@ import {
   EntryPointRecord,
   FetchPaginatedList,
   Participant,
+  AddressBookEntrySearchParams,
+  AddressBookEntriesResponse,
 } from '@webex/cc-store';
 
 type Enum<T extends Record<string, unknown>> = T[keyof T];
@@ -522,6 +524,16 @@ export interface OutdialCallProps {
   logger: ILogger;
 
   /**
+   * Function to get a list of address book entries.
+   */
+  getAddressBookEntries: (params: AddressBookEntrySearchParams) => Promise<AddressBookEntriesResponse>;
+
+  /**
+   * Flag to determine if the address book is enabled.
+   */
+  isAddressBookEnabled: boolean;
+
+  /**
    * Boolean indicating if there's an active telephony task.
    * Used to disable the outdial button when a telephony task is in progress.
    */
@@ -530,7 +542,12 @@ export interface OutdialCallProps {
 
 export type OutdialCallComponentProps = Pick<
   OutdialCallProps,
-  'logger' | 'startOutdial' | 'getOutdialANIEntries' | 'isTelephonyTaskActive'
+  | 'logger'
+  | 'startOutdial'
+  | 'getOutdialANIEntries'
+  | 'isTelephonyTaskActive'
+  | 'getAddressBookEntries'
+  | 'isAddressBookEnabled'
 >;
 
 /**
