@@ -1,4 +1,4 @@
-import {useEffect, useCallback, useState, useRef, useMemo} from 'react';
+import {useEffect, useCallback, useState, useMemo} from 'react';
 import {AddressBookEntriesResponse, AddressBookEntrySearchParams, ITask} from '@webex/contact-center';
 import {useCallControlProps, UseTaskListProps, UseTaskProps, useOutdialCallProps} from './task.types';
 import store, {
@@ -11,7 +11,10 @@ import store, {
   findMediaResourceId,
   MEDIA_TYPE_TELEPHONY_LOWER,
 } from '@webex/cc-store';
-import {findHoldTimestamp, getControlsVisibility} from './Utils/task-util';
+import {getControlsVisibility} from './Utils/task-util';
+import {TIMER_LABEL_CONSULTING} from './Utils/constants';
+import {calculateStateTimerData, calculateConsultTimerData} from './Utils/timer-utils';
+import {useHoldTimer} from './Utils/useHoldTimer';
 import {OutdialAniEntriesResponse} from '@webex/contact-center/dist/types/services/config/types';
 
 const ENGAGED_LABEL = 'ENGAGED';
@@ -289,76 +292,21 @@ export const useCallControl = (props: useCallControlProps) => {
   const [isRecording, setIsRecording] = useState(true);
   const [buddyAgents, setBuddyAgents] = useState<BuddyDetails[]>([]);
   const [consultAgentName, setConsultAgentName] = useState<string>('Consult Agent');
-  const [holdTime, setHoldTime] = useState(0);
   const [startTimestamp, setStartTimestamp] = useState<number>(0);
   const [secondsUntilAutoWrapup, setsecondsUntilAutoWrapup] = useState<number | null>(null);
-  const workerRef = useRef<Worker | null>(null);
+
+  // State timer labels and timestamps
+  const [stateTimerLabel, setStateTimerLabel] = useState<string | null>(null);
+  const [stateTimerTimestamp, setStateTimerTimestamp] = useState<number>(0);
+
+  // Consult timer labels and timestamps
+  const [consultTimerLabel, setConsultTimerLabel] = useState<string>(TIMER_LABEL_CONSULTING);
+  const [consultTimerTimestamp, setConsultTimerTimestamp] = useState<number>(0);
   const [lastTargetType, setLastTargetType] = useState<'agent' | 'queue'>('agent');
   const [conferenceParticipants, setConferenceParticipants] = useState<Participant[]>([]);
 
-  const workerScript = `
-    let intervalId = null;
-    self.onmessage = function(e) {
-      if (e.data.type === 'start') {
-        const eventTime = e.data.eventTime;
-        if (intervalId) clearInterval(intervalId);
-        intervalId = setInterval(() => {
-          const elapsed = Math.floor((Date.now() - eventTime) / 1000);
-          self.postMessage({ type: 'elapsedTime', elapsed });
-        }, 1000);
-      }
-      if (e.data.type === 'stop') {
-        if (intervalId) clearInterval(intervalId);
-        intervalId = null;
-      }
-    };
-  `;
-
-  useEffect(() => {
-    // Clean up previous worker if any
-    if (workerRef.current) {
-      if (typeof workerRef.current.postMessage === 'function') {
-        workerRef.current.postMessage({type: 'stop'});
-      }
-      if (typeof workerRef.current.terminate === 'function') {
-        workerRef.current.terminate();
-      }
-      workerRef.current = null;
-    }
-
-    // Get holdTimestamp from the interaction object
-    const holdTimestamp = currentTask?.data?.interaction
-      ? findHoldTimestamp(currentTask.data.interaction, 'mainCall')
-      : null;
-
-    if (holdTimestamp) {
-      const holdTimeMs = holdTimestamp < 10000000000 ? holdTimestamp * 1000 : holdTimestamp;
-      const blob = new Blob([workerScript], {type: 'application/javascript'});
-      const workerUrl = URL.createObjectURL(blob);
-      workerRef.current = new Worker(workerUrl);
-
-      // Set initial holdTime immediately for instant UI update
-      setHoldTime(Math.floor((Date.now() - holdTimeMs) / 1000));
-
-      workerRef.current.onmessage = (e) => {
-        if (e.data.type === 'elapsedTime') setHoldTime(e.data.elapsed);
-        if (e.data.type === 'stop') setHoldTime(0);
-      };
-
-      workerRef.current.postMessage({type: 'start', eventTime: holdTimeMs});
-    } else {
-      setHoldTime(0);
-    }
-
-    // Cleanup on unmount or when dependencies change
-    return () => {
-      if (workerRef.current) {
-        workerRef.current.postMessage({type: 'stop'});
-        workerRef.current.terminate();
-        workerRef.current = null;
-      }
-    };
-  }, [currentTask]);
+  // Use custom hook for hold timer management
+  const holdTime = useHoldTimer(currentTask);
 
   useEffect(() => {
     if (currentTask && store?.cc?.agentConfig?.agentId) {
@@ -399,17 +347,25 @@ export const useCallControl = (props: useCallControlProps) => {
     }
   }, [currentTask, logger]);
 
-  // Check for consulting agent whenever currentTask changes
+  // Extract main call timestamp whenever currentTask changes
   useEffect(() => {
     extractConsultingAgent();
-    if (
-      currentTask?.data?.interaction?.participants &&
-      store?.cc?.agentConfig?.agentId &&
-      currentTask.data.interaction.participants[store.cc.agentConfig.agentId]?.joinTimestamp
-    ) {
-      setStartTimestamp(currentTask.data.interaction.participants[store.cc.agentConfig.agentId].joinTimestamp);
+
+    if (!currentTask?.data?.interaction?.participants || !agentId) {
+      return;
     }
-  }, [currentTask, extractConsultingAgent]);
+
+    const participant = currentTask.data.interaction.participants[agentId];
+
+    if (!participant) {
+      return;
+    }
+
+    // Main call timer - use joinTimestamp
+    if (participant.joinTimestamp) {
+      setStartTimestamp(participant.joinTimestamp);
+    }
+  }, [currentTask, agentId, extractConsultingAgent]);
 
   const loadBuddyAgents = useCallback(async () => {
     try {
@@ -911,6 +867,21 @@ export const useCallControl = (props: useCallControlProps) => {
     };
   }, [currentTask?.autoWrapup, controlVisibility?.wrapup]);
 
+  // Calculate state timer label and timestamp using utils
+  // Priority: Wrap Up > Post Call
+  useEffect(() => {
+    const stateTimerData = calculateStateTimerData(currentTask, controlVisibility, agentId);
+    setStateTimerLabel(stateTimerData.label);
+    setStateTimerTimestamp(stateTimerData.timestamp);
+  }, [currentTask, controlVisibility, agentId]);
+
+  // Calculate consult timer label and timestamp using utils
+  useEffect(() => {
+    const consultTimerData = calculateConsultTimerData(currentTask, controlVisibility, agentId);
+    setConsultTimerLabel(consultTimerData.label);
+    setConsultTimerTimestamp(consultTimerData.timestamp);
+  }, [currentTask, controlVisibility, agentId]);
+
   return {
     currentTask,
     endCall,
@@ -935,6 +906,10 @@ export const useCallControl = (props: useCallControlProps) => {
     setConsultAgentName,
     holdTime,
     startTimestamp,
+    stateTimerLabel,
+    stateTimerTimestamp,
+    consultTimerLabel,
+    consultTimerTimestamp,
     lastTargetType,
     setLastTargetType,
     controlVisibility,
