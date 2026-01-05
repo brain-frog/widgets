@@ -3,7 +3,8 @@
 exports[`Outdial Call Component Address Book functionality displays address book entries 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="address_book"
@@ -29,7 +30,7 @@ exports[`Outdial Call Component Address Book functionality displays address book
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="address_book"
       class="address-book-container"
       id="address_book"
@@ -87,7 +88,7 @@ exports[`Outdial Call Component Address Book functionality displays address book
           </li>
         </ul>
       </section>
-    </div>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -185,7 +186,6 @@ exports[`Outdial Call Component Address Book functionality displays address book
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -204,7 +204,8 @@ exports[`Outdial Call Component Address Book functionality displays address book
 exports[`Outdial Call Component Address Book functionality renders address book search input 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="address_book"
@@ -230,7 +231,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="address_book"
       class="address-book-container"
       id="address_book"
@@ -288,7 +289,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
           </li>
         </ul>
       </section>
-    </div>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -386,7 +387,6 @@ exports[`Outdial Call Component Address Book functionality renders address book 
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -405,7 +405,8 @@ exports[`Outdial Call Component Address Book functionality renders address book 
 exports[`Outdial Call Component Address Book functionality renders address book with infinite scroll sentinel 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="address_book"
@@ -431,7 +432,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="address_book"
       class="address-book-container"
       id="address_book"
@@ -906,7 +907,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
           />
         </ul>
       </section>
-    </div>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -1004,7 +1005,6 @@ exports[`Outdial Call Component Address Book functionality renders address book 
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -1023,7 +1023,8 @@ exports[`Outdial Call Component Address Book functionality renders address book 
 exports[`Outdial Call Component Address Book functionality renders address book without sentinel when no more entries 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="address_book"
@@ -1049,7 +1050,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="address_book"
       class="address-book-container"
       id="address_book"
@@ -1251,7 +1252,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
           </li>
         </ul>
       </section>
-    </div>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -1349,7 +1350,6 @@ exports[`Outdial Call Component Address Book functionality renders address book 
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -1368,7 +1368,8 @@ exports[`Outdial Call Component Address Book functionality renders address book 
 exports[`Outdial Call Component Address Book functionality renders loading spinner while loading more entries 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="address_book"
@@ -1394,7 +1395,7 @@ exports[`Outdial Call Component Address Book functionality renders loading spinn
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="address_book"
       class="address-book-container"
       id="address_book"
@@ -1878,7 +1879,7 @@ exports[`Outdial Call Component Address Book functionality renders loading spinn
           </div>
         </ul>
       </section>
-    </div>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -1976,7 +1977,6 @@ exports[`Outdial Call Component Address Book functionality renders loading spinn
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -1995,7 +1995,8 @@ exports[`Outdial Call Component Address Book functionality renders loading spinn
 exports[`Outdial Call Component Address Book functionality renders with address book enabled 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="dial_pad"
@@ -2021,199 +2022,194 @@ exports[`Outdial Call Component Address Book functionality renders with address 
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="dial_pad"
-      class="keypad"
+      class="dialpad-tab-container"
       id="dial_pad"
       role="tabpanel"
     >
-      <section
-        class="keypad"
-        data-testid="outdial-call-container"
+      <mdc-input
+        class="outdial-input"
+        data-testid="outdial-number-input"
+        help-text=""
+        help-text-type="default"
+        name="outdial-number-input"
+        value=""
+      />
+      <ul
+        class="keys"
+        data-testid="outdial-keypad-keys"
       >
-        <mdc-input
-          class="outdial-input"
-          data-testid="outdial-number-input"
-          help-text=""
-          help-text-type="default"
-          name="outdial-number-input"
-          value=""
-        />
-        <ul
-          class="keys"
-          data-testid="outdial-keypad-keys"
-        >
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              1
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              2
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              3
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              4
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              5
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              6
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              7
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              8
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              9
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              *
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              0
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              #
-            </mdc-button>
-          </li>
-        </ul>
-      </section>
-    </div>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            1
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            2
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            3
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            4
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            5
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            6
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            7
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            8
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            9
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            *
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            0
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            #
+          </mdc-button>
+        </li>
+      </ul>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -2311,7 +2307,6 @@ exports[`Outdial Call Component Address Book functionality renders with address 
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -2330,7 +2325,8 @@ exports[`Outdial Call Component Address Book functionality renders with address 
 exports[`Outdial Call Component Address Book functionality renders with address book enabled by default when prop not provided 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="dial_pad"
@@ -2356,199 +2352,194 @@ exports[`Outdial Call Component Address Book functionality renders with address 
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="dial_pad"
-      class="keypad"
+      class="dialpad-tab-container"
       id="dial_pad"
       role="tabpanel"
     >
-      <section
-        class="keypad"
-        data-testid="outdial-call-container"
+      <mdc-input
+        class="outdial-input"
+        data-testid="outdial-number-input"
+        help-text=""
+        help-text-type="default"
+        name="outdial-number-input"
+        value=""
+      />
+      <ul
+        class="keys"
+        data-testid="outdial-keypad-keys"
       >
-        <mdc-input
-          class="outdial-input"
-          data-testid="outdial-number-input"
-          help-text=""
-          help-text-type="default"
-          name="outdial-number-input"
-          value=""
-        />
-        <ul
-          class="keys"
-          data-testid="outdial-keypad-keys"
-        >
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              1
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              2
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              3
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              4
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              5
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              6
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              7
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              8
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              9
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              *
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              0
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              #
-            </mdc-button>
-          </li>
-        </ul>
-      </section>
-    </div>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            1
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            2
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            3
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            4
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            5
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            6
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            7
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            8
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            9
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            *
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            0
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            #
+          </mdc-button>
+        </li>
+      </ul>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -2636,7 +2627,6 @@ exports[`Outdial Call Component Address Book functionality renders with address 
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -2655,7 +2645,8 @@ exports[`Outdial Call Component Address Book functionality renders with address 
 exports[`Outdial Call Component Address Book functionality selects an address book entry 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="address_book"
@@ -2681,7 +2672,7 @@ exports[`Outdial Call Component Address Book functionality selects an address bo
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="address_book"
       class="address-book-container"
       id="address_book"
@@ -2739,7 +2730,7 @@ exports[`Outdial Call Component Address Book functionality selects an address bo
           </li>
         </ul>
       </section>
-    </div>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -2837,7 +2828,6 @@ exports[`Outdial Call Component Address Book functionality selects an address bo
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -2856,7 +2846,8 @@ exports[`Outdial Call Component Address Book functionality selects an address bo
 exports[`Outdial Call Component Address Book functionality shows empty state when no address book entries 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="address_book"
@@ -2882,7 +2873,7 @@ exports[`Outdial Call Component Address Book functionality shows empty state whe
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="address_book"
       class="address-book-container"
       id="address_book"
@@ -2907,7 +2898,7 @@ exports[`Outdial Call Component Address Book functionality shows empty state whe
           </p>
         </ul>
       </section>
-    </div>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -3005,7 +2996,6 @@ exports[`Outdial Call Component Address Book functionality shows empty state whe
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -3024,7 +3014,8 @@ exports[`Outdial Call Component Address Book functionality shows empty state whe
 exports[`Outdial Call Component Address Book functionality switches back to dial pad from address book 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="dial_pad"
@@ -3050,199 +3041,194 @@ exports[`Outdial Call Component Address Book functionality switches back to dial
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="dial_pad"
-      class="keypad"
+      class="dialpad-tab-container"
       id="dial_pad"
       role="tabpanel"
     >
-      <section
-        class="keypad"
-        data-testid="outdial-call-container"
+      <mdc-input
+        class="outdial-input"
+        data-testid="outdial-number-input"
+        help-text=""
+        help-text-type="default"
+        name="outdial-number-input"
+        value=""
+      />
+      <ul
+        class="keys"
+        data-testid="outdial-keypad-keys"
       >
-        <mdc-input
-          class="outdial-input"
-          data-testid="outdial-number-input"
-          help-text=""
-          help-text-type="default"
-          name="outdial-number-input"
-          value=""
-        />
-        <ul
-          class="keys"
-          data-testid="outdial-keypad-keys"
-        >
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              1
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              2
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              3
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              4
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              5
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              6
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              7
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              8
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              9
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              *
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              0
-            </mdc-button>
-          </li>
-          <li>
-            <mdc-button
-              class="key button"
-              color="default"
-              data-btn-type="pill"
-              role="button"
-              size="32"
-              tabindex="0"
-              type="button"
-              variant="primary"
-            >
-              #
-            </mdc-button>
-          </li>
-        </ul>
-      </section>
-    </div>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            1
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            2
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            3
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            4
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            5
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            6
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            7
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            8
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            9
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            *
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            0
+          </mdc-button>
+        </li>
+        <li>
+          <mdc-button
+            class="key"
+            color="default"
+            data-btn-type="pill"
+            role="button"
+            size="32"
+            tabindex="0"
+            type="button"
+            variant="primary"
+          >
+            #
+          </mdc-button>
+        </li>
+      </ul>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -3340,7 +3326,6 @@ exports[`Outdial Call Component Address Book functionality switches back to dial
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -3359,7 +3344,8 @@ exports[`Outdial Call Component Address Book functionality switches back to dial
 exports[`Outdial Call Component Address Book functionality switches to address book tab 1`] = `
 <div>
   <article
-    class="outdial-container height-28-5rem"
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
     <mdc-tablist
       active-tab-id="address_book"
@@ -3385,7 +3371,7 @@ exports[`Outdial Call Component Address Book functionality switches to address b
         variant="glass"
       />
     </mdc-tablist>
-    <div
+    <section
       aria-labelledby="address_book"
       class="address-book-container"
       id="address_book"
@@ -3443,7 +3429,7 @@ exports[`Outdial Call Component Address Book functionality switches to address b
           </li>
         </ul>
       </section>
-    </div>
+    </section>
     <div
       class="outdial-ani-select-container"
     >
@@ -3541,7 +3527,6 @@ exports[`Outdial Call Component Address Book functionality switches to address b
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -3560,194 +3545,190 @@ exports[`Outdial Call Component Address Book functionality switches to address b
 exports[`Outdial Call Component Rendering renders the component correctly 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value=""
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value=""
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -3845,7 +3826,6 @@ exports[`Outdial Call Component Rendering renders the component correctly 1`] = 
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -3864,194 +3844,190 @@ exports[`Outdial Call Component Rendering renders the component correctly 1`] = 
 exports[`Outdial Call Component allows special characters (* # +) from keypad 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text="Incorrect format."
+      help-text-type="error"
+      name="outdial-number-input"
+      value="*"
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text="Incorrect format."
-        help-text-type="error"
-        name="outdial-number-input"
-        value="*"
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -4149,7 +4125,6 @@ exports[`Outdial Call Component allows special characters (* # +) from keypad 1`
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -4168,194 +4143,190 @@ exports[`Outdial Call Component allows special characters (* # +) from keypad 1`
 exports[`Outdial Call Component calls startOutdial with correct payload when clicking call button 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value="123"
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value="123"
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -4452,7 +4423,6 @@ exports[`Outdial Call Component calls startOutdial with correct payload when cli
       </div>
     </div>
     <mdc-button
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -4470,194 +4440,190 @@ exports[`Outdial Call Component calls startOutdial with correct payload when cli
 exports[`Outdial Call Component does not allow empty input 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value=""
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value=""
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -4755,7 +4721,6 @@ exports[`Outdial Call Component does not allow empty input 1`] = `
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -4774,194 +4739,190 @@ exports[`Outdial Call Component does not allow empty input 1`] = `
 exports[`Outdial Call Component does not allow invalid characters when typing 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value=""
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value=""
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -5059,7 +5020,6 @@ exports[`Outdial Call Component does not allow invalid characters when typing 1`
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -5078,194 +5038,190 @@ exports[`Outdial Call Component does not allow invalid characters when typing 1`
 exports[`Outdial Call Component has no ANI entry options when the entry list is empty 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value=""
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value=""
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -5346,7 +5302,6 @@ exports[`Outdial Call Component has no ANI entry options when the entry list is 
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -5365,194 +5320,190 @@ exports[`Outdial Call Component has no ANI entry options when the entry list is 
 exports[`Outdial Call Component sets selected ani when an option is selected 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value=""
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value=""
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -5769,7 +5720,6 @@ exports[`Outdial Call Component sets selected ani when an option is selected 1`]
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -5788,194 +5738,190 @@ exports[`Outdial Call Component sets selected ani when an option is selected 1`]
 exports[`Outdial Call Component shows error help text when invalid characters are entered 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value=""
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value=""
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -6073,7 +6019,6 @@ exports[`Outdial Call Component shows error help text when invalid characters ar
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -6092,194 +6037,190 @@ exports[`Outdial Call Component shows error help text when invalid characters ar
 exports[`Outdial Call Component updates input value when clicking keypad buttons 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value=""
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value=""
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -6377,7 +6318,6 @@ exports[`Outdial Call Component updates input value when clicking keypad buttons
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
@@ -6396,194 +6336,190 @@ exports[`Outdial Call Component updates input value when clicking keypad buttons
 exports[`Outdial Call Component updates input value when typing directly 1`] = `
 <div>
   <article
-    class="outdial-container "
+    class="outdial-container"
+    data-testid="outdial-call-container"
   >
-    <section
-      class="keypad"
-      data-testid="outdial-call-container"
+    <mdc-input
+      class="outdial-input"
+      data-testid="outdial-number-input"
+      help-text=""
+      help-text-type="default"
+      name="outdial-number-input"
+      value=""
+    />
+    <ul
+      class="keys"
+      data-testid="outdial-keypad-keys"
     >
-      <mdc-input
-        class="outdial-input"
-        data-testid="outdial-number-input"
-        help-text=""
-        help-text-type="default"
-        name="outdial-number-input"
-        value=""
-      />
-      <ul
-        class="keys"
-        data-testid="outdial-keypad-keys"
-      >
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            1
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            2
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            3
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            4
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            5
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            6
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            7
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            8
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            9
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            *
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            0
-          </mdc-button>
-        </li>
-        <li>
-          <mdc-button
-            class="key button"
-            color="default"
-            data-btn-type="pill"
-            role="button"
-            size="32"
-            tabindex="0"
-            type="button"
-            variant="primary"
-          >
-            #
-          </mdc-button>
-        </li>
-      </ul>
-    </section>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          1
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          2
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          3
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          4
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          5
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          6
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          7
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          8
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          9
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          *
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          0
+        </mdc-button>
+      </li>
+      <li>
+        <mdc-button
+          class="key"
+          color="default"
+          data-btn-type="pill"
+          role="button"
+          size="32"
+          tabindex="0"
+          type="button"
+          variant="primary"
+        >
+          #
+        </mdc-button>
+      </li>
+    </ul>
     <div
       class="outdial-ani-select-container"
     >
@@ -6681,7 +6617,6 @@ exports[`Outdial Call Component updates input value when typing directly 1`] = `
     </div>
     <mdc-button
       aria-disabled="true"
-      class="outDialCallButton"
       color="default"
       data-btn-type="icon"
       data-testid="outdial-call-button"
