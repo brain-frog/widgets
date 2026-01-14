@@ -8,6 +8,8 @@ export const OutdialStrings = {
   OUTDIAL_CALL: 'Outdial Call',
   ADDRESS_BOOK_SEARCH_PLACEHOLDER: 'Search by Name/Number',
   ADDRESS_BOOK_NO_RESULTS: 'No address book entries found.',
+  TAB_ADDRESS_BOOK: 'Address Book',
+  TAB_DIALPAD: 'Dialpad',
 };
 
 // Utility Constants

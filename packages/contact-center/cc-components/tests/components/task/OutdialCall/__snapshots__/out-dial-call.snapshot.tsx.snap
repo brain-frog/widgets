@@ -18,6 +18,7 @@ exports[`Outdial Call Component Address Book functionality displays address book
         role="tab"
         tab-id="address_book"
         tabindex="0"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -27,6 +28,7 @@ exports[`Outdial Call Component Address Book functionality displays address book
         role="tab"
         tab-id="dial_pad"
         tabindex="-1"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -219,6 +221,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         role="tab"
         tab-id="address_book"
         tabindex="0"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -228,6 +231,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         role="tab"
         tab-id="dial_pad"
         tabindex="-1"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -420,6 +424,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         role="tab"
         tab-id="address_book"
         tabindex="0"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -429,6 +434,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         role="tab"
         tab-id="dial_pad"
         tabindex="-1"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -1038,6 +1044,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         role="tab"
         tab-id="address_book"
         tabindex="0"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -1047,6 +1054,7 @@ exports[`Outdial Call Component Address Book functionality renders address book 
         role="tab"
         tab-id="dial_pad"
         tabindex="-1"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -1383,6 +1391,7 @@ exports[`Outdial Call Component Address Book functionality renders loading spinn
         role="tab"
         tab-id="address_book"
         tabindex="0"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -1392,6 +1401,7 @@ exports[`Outdial Call Component Address Book functionality renders loading spinn
         role="tab"
         tab-id="dial_pad"
         tabindex="-1"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -2009,6 +2019,7 @@ exports[`Outdial Call Component Address Book functionality renders with address 
         role="tab"
         tab-id="address_book"
         tabindex="-1"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -2019,6 +2030,7 @@ exports[`Outdial Call Component Address Book functionality renders with address 
         role="tab"
         tab-id="dial_pad"
         tabindex="0"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -2339,6 +2351,7 @@ exports[`Outdial Call Component Address Book functionality renders with address 
         role="tab"
         tab-id="address_book"
         tabindex="-1"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -2349,6 +2362,7 @@ exports[`Outdial Call Component Address Book functionality renders with address 
         role="tab"
         tab-id="dial_pad"
         tabindex="0"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -2660,6 +2674,7 @@ exports[`Outdial Call Component Address Book functionality selects an address bo
         role="tab"
         tab-id="address_book"
         tabindex="0"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -2669,6 +2684,7 @@ exports[`Outdial Call Component Address Book functionality selects an address bo
         role="tab"
         tab-id="dial_pad"
         tabindex="-1"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -2861,6 +2877,7 @@ exports[`Outdial Call Component Address Book functionality shows empty state whe
         role="tab"
         tab-id="address_book"
         tabindex="0"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -2870,6 +2887,7 @@ exports[`Outdial Call Component Address Book functionality shows empty state whe
         role="tab"
         tab-id="dial_pad"
         tabindex="-1"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -3028,6 +3046,7 @@ exports[`Outdial Call Component Address Book functionality switches back to dial
         role="tab"
         tab-id="address_book"
         tabindex="-1"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -3038,6 +3057,7 @@ exports[`Outdial Call Component Address Book functionality switches back to dial
         role="tab"
         tab-id="dial_pad"
         tabindex="0"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>
@@ -3359,6 +3379,7 @@ exports[`Outdial Call Component Address Book functionality switches to address b
         role="tab"
         tab-id="address_book"
         tabindex="0"
+        text="Address Book"
         variant="glass"
       />
       <mdc-tab
@@ -3368,6 +3389,7 @@ exports[`Outdial Call Component Address Book functionality switches to address b
         role="tab"
         tab-id="dial_pad"
         tabindex="-1"
+        text="Dialpad"
         variant="glass"
       />
     </mdc-tablist>

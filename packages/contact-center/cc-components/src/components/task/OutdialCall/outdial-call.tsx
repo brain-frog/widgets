@@ -296,6 +296,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
               aria-controls={TABS.ADDRESS_BOOK}
               variant="glass"
               onClick={handleAddressBookTabClick}
+              text={OutdialStrings.TAB_ADDRESS_BOOK}
             ></Tab>
 
             <Tab
@@ -304,6 +305,7 @@ const OutdialCallComponent: React.FunctionComponent<OutdialCallComponentProps> =
               aria-controls={TABS.DIAL_PAD}
               variant="glass"
               onClick={handleDialpadTabClick}
+              text={OutdialStrings.TAB_DIALPAD}
             ></Tab>
           </TabList>
 
